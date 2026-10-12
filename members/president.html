@@ -19,101 +19,131 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #f2f0e9;
+      background: #000000;
+      color: #ffffff;
       font-family: Arial, sans-serif;
-      color: #15233b;
     }
 
     .card {
       width: 100%;
       max-width: 440px;
-      background: white;
-      border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 15px 45px #15233b20;
+      background: #101010;
+      border: 1px solid #343434;
+      border-radius: 18px;
+      box-shadow: 0 20px 60px #00000080;
     }
 
     .header {
-      padding: 28px;
-      background: #101d35;
-      color: white;
-      border-bottom: 4px solid #d9b76d;
+      padding: 26px 28px;
+      background: #000000;
+      border-bottom: 2px solid #c8a65d;
     }
 
     .logo {
       color: #d9b76d;
-      font-size: 25px;
+      font-size: 26px;
       font-weight: bold;
+      letter-spacing: 1px;
     }
 
     .subtitle {
       margin-top: 8px;
+      color: #cccccc;
       font-size: 11px;
       line-height: 1.7;
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
     }
 
     .content {
       padding: 30px 28px;
+      text-align: center;
     }
 
     .label {
-      color: #8b6c2e;
+      color: #d9b76d;
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 2px;
     }
 
+    .member-photo {
+      display: block;
+      width: 140px;
+      height: 140px;
+      margin: 24px auto;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+      border: 3px solid #c8a65d;
+      background: #202020;
+    }
+
     h1 {
-      margin: 14px 0 8px;
-      font-size: 29px;
+      margin: 12px 0;
+      color: #ffffff;
+      font-size: 28px;
+      overflow-wrap: anywhere;
     }
 
     .role {
-      color: #8b6c2e;
+      margin: 0;
+      color: #d9b76d;
       font-size: 17px;
       font-weight: bold;
     }
 
     .mandate {
-      color: #667085;
+      margin-top: 12px;
+      color: #bbbbbb;
       font-size: 14px;
     }
 
     .status {
       display: inline-block;
       margin-top: 12px;
-      padding: 8px 12px;
+      padding: 8px 14px;
+      border: 1px solid #567b60;
       border-radius: 30px;
-      background: #e5f4e9;
-      color: #24643b;
+      background: #14251a;
+      color: #a8ddb4;
       font-size: 12px;
     }
 
     .footer {
-      padding: 20px 28px;
-      background: #f8f7f3;
+      padding: 22px 28px;
+      background: #080808;
+      border-top: 1px solid #343434;
+      color: #cccccc;
       font-size: 13px;
-      line-height: 1.9;
+      line-height: 2;
+      text-align: center;
     }
 
     a {
-      color: #15233b;
+      color: #d9b76d;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     .note {
-      margin-top: 20px;
-      color: #667085;
+      margin-top: 24px;
+      color: #999999;
       font-size: 11px;
-      line-height: 1.6;
+      line-height: 1.7;
     }
   </style>
 </head>
 
 <body>
   <main class="card">
+
     <header class="header">
       <div class="logo">E. | ESCLD</div>
+
       <div class="subtitle">
         EUROPEAN STUDENT COUNCIL<br>
         FOR LAW AND DIPLOMACY
@@ -123,28 +153,45 @@
     <section class="content">
       <div class="label">Carte de fonction</div>
 
+      <img
+        class="member-photo"
+        src="../assets/president.jpg"
+        alt="Photo du président de l'ESCLD"
+      >
+
       <h1>Prénom NOM</h1>
 
-      <div class="role">Président(e)</div>
+      <p class="role">Président</p>
 
-      <p class="mandate">Mandat : 2026–2027</p>
+      <p class="mandate">
+        Mandat : 2026–2027
+      </p>
 
       <span class="status">Mandat en cours</span>
 
       <p class="note">
         Cette carte présente une fonction au sein de l'association.
-        Elle ne constitue pas une pièce d'identité officielle ni
-        une accréditation diplomatique.
+        Elle ne constitue pas une pièce d'identité officielle
+        ni une accréditation diplomatique.
       </p>
     </section>
 
     <footer class="footer">
-      <strong>European Student Council for Law and Diplomacy</strong><br>
+      <strong>
+        European Student Council for Law and Diplomacy
+      </strong>
+      <br>
 
-      <a href="../index.html">Site officiel de l'ESCLD</a><br>
+      <a href="../index.html">
+        Site officiel de l'ESCLD
+      </a>
+      <br>
 
-      <a href="mailto:contact@escld.org">Contacter l'association</a>
+      <a href="mailto:contact@escld.org">
+        Contacter l'association
+      </a>
     </footer>
+
   </main>
 </body>
 </html>
