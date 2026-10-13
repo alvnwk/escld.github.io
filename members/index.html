@@ -169,34 +169,31 @@
 
   <header class="site-header">
     <div class="nav-wrap">
-      <a class="brand" href="../index.html" aria-label="ESCLD — Accueil">
-        <span class="brand-mark" aria-hidden="true">E</span>
+      <a class="brand" href="index.html" aria-label="ESCLD, home">
+       <img
+  class="brand-mark"
+  src="/assets/logo-escld.svg"
+  alt="ESCLD"
+>
         <span>
-          <strong>ESCLD</strong>
-          <small>Law · Diplomacy · Europe</small>
+          <span class="brand-name">European Student Council</span>
+          <span class="brand-sub">for Law and Diplomacy</span>
         </span>
       </a>
 
-      <nav class="main-nav" aria-label="Navigation principale">
-        <a href="../index.html">Accueil</a>
-        <a href="../about.html">À propos</a>
-        <a href="../councils.html">Conseils</a>
-        <a href="../publications.html">Publications</a>
-        <a href="./index.html" aria-current="page">Membres</a>
-        <a href="../join.html">Nous rejoindre</a>
-        <a href="../contact.html">Contact</a>
-      </nav>
-
-      <button
-        class="menu-toggle"
-        type="button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="menu-toggle" aria-expanded="false" aria-label="Open menu">
+        Menu ☰
       </button>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">The Association</a>
+        <a href="councils.html">Our Councils</a>
+        <a href="publications.html">Publications</a>
+        <a href="members/index.html">Members</a>
+        <a href="join.html">Join us</a>
+        <a class="nav-cta" href="contact.html">Contact ↗</a>
+      </nav>
     </div>
   </header>
 
@@ -204,19 +201,16 @@
     <section class="page-hero">
       <div class="page-hero-inner">
         <p class="breadcrumb">
-          <a href="../index.html">Accueil</a>
+          <a href="../index.html">HOME</a>
           <span aria-hidden="true"> / </span>
-          Membres
+          REPRESENTATIVE MEMBERS
         </p>
 
-        <p class="eyebrow">Notre communauté</p>
-
-        <h1>Les membres de l’ESCLD</h1>
+        <h1>Our representative members</h1>
 
         <p class="members-intro">
-          Découvrez les personnes qui contribuent au développement de
-          l’European Student Council for Law and Diplomacy et consultez
-          leurs cartes virtuelles individuelles.
+          Discover the people contributing to the development of the European Student Council for Law and Diplomacy and view their individual digital business cards. 
+          Only members holding representative positions are featured here.
         </p>
       </div>
     </section>
@@ -225,20 +219,19 @@
       <div class="section-inner">
         <div class="section-heading">
           <p class="small-label">Organisation</p>
-          <h2>Les personnes qui font vivre le Conseil</h2>
+          <h2>The people behind the Association</h2>
           <p>
-            Sélectionnez un profil pour accéder à la carte virtuelle
-            correspondante.
+            Select a profile to view the corresponding digital card.
           </p>
         </div>
 
         <div class="members-toolbar">
           <div class="members-search">
-            <label for="member-search">Rechercher un membre</label>
+            <label for="member-search">Search for a member</label>
             <input
               id="member-search"
               type="search"
-              placeholder="Nom, fonction ou responsabilité…"
+              placeholder="Name, position, or role…"
               autocomplete="off"
             >
           </div>
@@ -257,7 +250,7 @@
           <article
             class="info-card member-card"
             data-member
-            data-search="alvin nowakowski président fondateur founding president founder"
+            data-search="alvin nowakowski founding president constituational law and legal theory council director"
           >
             <div class="member-card-top">
               <div class="member-avatar" aria-hidden="true">AN</div>
@@ -265,19 +258,17 @@
               <div>
                 <h3>Alvin Nowakowski</h3>
                 <p class="member-role">
-                  Founding President
+                  Founding President<br>Constitutional Law and Legal Theory Council Director
                 </p>
               </div>
             </div>
 
             <span class="member-status">
-              Bureau exécutif
+              Executive Board<br>Council Director
             </span>
 
             <p class="member-card-description">
-              Président fondateur de l’European Student Council for Law
-              and Diplomacy, engagé dans le développement des échanges
-              académiques et de la coopération européenne et internationale.
+             A passionate admirer of law, diplomacy, Europe, and international relations.
             </p>
 
             <a
@@ -285,7 +276,7 @@
               href="president.html"
               aria-label="Consulter la carte virtuelle d’Alvin Nowakowski"
             >
-              Voir la carte virtuelle
+              View digital card
               <span aria-hidden="true">↗</span>
             </a>
           </article>
@@ -294,7 +285,7 @@
           <article
             class="info-card member-card"
             data-member
-            data-search="chirelle biabaro cofondatrice co-founder membre fondatrice"
+            data-search="chirelle biabaro founding vice-president vice president"
           >
             <div class="member-card-top">
               <div class="member-avatar" aria-hidden="true">CB</div>
@@ -302,18 +293,17 @@
               <div>
                 <h3>Chirelle Biabaro</h3>
                 <p class="member-role">
-                  Co-Founder
+                  Founding Vice-President
                 </p>
               </div>
             </div>
 
             <span class="member-status">
-              Membre fondatrice
+              Executive Board
             </span>
 
             <p class="member-card-description">
-              Cofondatrice de l’ESCLD, participant à la création et au
-              développement du projet associatif.
+              Committed to combating harassment and supporting international associations.
             </p>
 
             <a
@@ -321,7 +311,7 @@
               href="cofounder.html"
               aria-label="Consulter la carte virtuelle de Chirelle Biabaro"
             >
-              Voir la carte virtuelle
+              View digital card
               <span aria-hidden="true">↗</span>
             </a>
           </article>
@@ -332,7 +322,7 @@
           id="members-empty"
           hidden
         >
-          Aucun profil ne correspond à votre recherche.
+          No profiles match your search.
         </p>
       </div>
     </section>
@@ -341,19 +331,17 @@
       <div class="section-inner">
         <div class="two-col">
           <div>
-            <p class="eyebrow">Rejoindre le Conseil</p>
-            <h2>Contribuez à notre communauté</h2>
+
+            <h2>Join us</h2>
           </div>
 
           <div>
             <p>
-              L’ESCLD souhaite favoriser les échanges entre les étudiants
-              et les jeunes intéressés par le droit, la diplomatie,
-              les relations internationales et les affaires européennes.
+              The European Student Council for Law and Diplomacy brings together students and young people who wish to deepen their understanding of law, diplomacy, international relations and European affairs.
             </p>
 
             <a class="button" href="../join.html">
-              Découvrir comment nous rejoindre
+              Discover how to join us
               <span aria-hidden="true">↗</span>
             </a>
           </div>
@@ -366,48 +354,54 @@
     <div class="footer-inner">
       <div class="footer-grid">
         <div>
-          <a class="brand" href="../index.html">
-            <span class="brand-mark" aria-hidden="true">E</span>
+          <a class="brand" href="index.html">
+            <img
+  class="brand-mark"
+  src="/assets/logo-escld.svg"
+  alt="ESCLD"
+>
             <span>
-              <strong>ESCLD</strong>
-              <small>Law · Diplomacy · Europe</small>
+              <span class="brand-name">European Student Council</span>
+              <span class="brand-sub">for Law and Diplomacy</span>
             </span>
           </a>
 
           <p>
-            Un espace étudiant de réflexion, d’échange et de coopération
-            autour du droit, de la diplomatie et des affaires européennes.
+            A student-led association dedicated to promoting the study and understanding of law, diplomacy, international relations and European affairs.
           </p>
         </div>
 
         <div>
-          <h2>Navigation</h2>
-          <ul class="footer-links">
-            <li><a href="../about.html">À propos</a></li>
-            <li><a href="../councils.html">Conseils</a></li>
-            <li><a href="../publications.html">Publications</a></li>
-            <li><a href="./index.html">Membres</a></li>
-            <li><a href="../join.html">Nous rejoindre</a></li>
-            <li><a href="../contact.html">Contact</a></li>
-          </ul>
+          <h3>To Explore</h3>
+          <div class="footer-links">
+            <a href="about.html">The Association</a>
+            <a href="councils.html">Our Councils</a>
+            <a href="publications.html">Publications</a>
+            <a href="members/index.html">Representative members</a>
+            <a href="join.html">Join us</a>
+          </div>
         </div>
 
         <div>
-          <h2>Informations</h2>
-          <ul class="footer-links">
-            <li><a href="../legal.html">Mentions légales</a></li>
-          </ul>
+          <h3>Contact us</h3>
+          <div class="footer-links">
+            <a href="mailto:contact@escld.eu">contact@escld.eu</a>
+            <a href="contact.html">Contact form</a>
+            <a href="legal.html">Legal notice</a>
+          </div>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>
-          © <span id="current-year"></span>
-          European Student Council for Law and Diplomacy.
-        </p>
+        <span>
+          © <span data-year></span> European Student Council for Law and Diplomacy
+        </span>
+
+        <span>Du droit naissent les voix qui rapprochent les nations</span>
       </div>
     </div>
   </footer>
+
 
   <script src="../assets/script.js"></script>
 
