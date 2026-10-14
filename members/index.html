@@ -1,196 +1,338 @@
-
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta
-    name="description"
-    content="Découvrez les membres et les responsables de l’European Student Council for Law and Diplomacy."
-  >
-
+  <meta name="description" content="Meet the representative members of the European Student Council for Law and Diplomacy.">
   <meta name="theme-color" content="#192940">
-
-  <title>Our members</title>
-
-  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../assets/style.css">
+  <title>Representative Members | ESCLD</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/style.css">
 
   <style>
-    .members-toolbar {
-      display: flex;
+    :root {
+      --members-navy: var(--navy, #192940);
+      --members-gold: var(--gold, #c9a96e);
+      --members-muted: var(--muted, #687386);
+      --members-line: var(--line, #d8dce2);
+      --members-paper: #fbfaf7;
+    }
+
+    .members-hero .page-hero-inner { max-width: 1120px; }
+    .members-eyebrow {
+      display: inline-flex;
       align-items: center;
+      gap: .65rem;
+      margin: 0 0 1rem;
+      color: var(--members-gold);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .members-eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 2rem;
+      height: 1px;
+      background: currentColor;
+    }
+    .members-intro { max-width: 700px; }
+    .members-intro p { max-width: 66ch; }
+
+    .members-overview {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      margin: 2.5rem 0 0;
+      overflow: hidden;
+      border: 1px solid var(--members-line);
+      background: var(--members-line);
+      border-radius: 8px;
+    }
+    .members-overview-item {
+      min-height: 100px;
+      padding: 1.25rem 1.4rem;
+      background: var(--white, #fff);
+    }
+    .members-overview-number {
+      display: block;
+      margin-bottom: .35rem;
+      color: var(--members-navy);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.7rem;
+      line-height: 1.1;
+    }
+    .members-overview-label {
+      color: var(--members-muted);
+      font-size: .83rem;
+      line-height: 1.45;
+    }
+
+    .members-section-heading {
+      display: flex;
+      align-items: end;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
+      gap: 1.5rem;
       margin-bottom: 2rem;
     }
+    .members-section-heading .section-heading { margin-bottom: 0; }
+    .members-section-heading p { max-width: 55ch; }
 
-    .members-search {
-      width: 100%;
-      max-width: 420px;
+    .members-toolbar {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+      padding: 1.25rem;
+      border: 1px solid var(--members-line);
+      border-radius: 8px;
+      background: var(--members-paper);
     }
-
+    .members-search { flex: 1 1 320px; max-width: 520px; }
     .members-search label {
       display: block;
-      margin-bottom: 0.5rem;
-      font-size: 0.85rem;
-      font-weight: 600;
+      margin-bottom: .5rem;
+      color: var(--members-navy);
+      font-size: .82rem;
+      font-weight: 700;
     }
-
-    .members-search input {
+    .members-search-field { position: relative; }
+    .members-search-field input {
       box-sizing: border-box;
       width: 100%;
-      padding: 0.85rem 1rem;
-      border: 1px solid var(--line, #d8dce2);
-      border-radius: 4px;
-      background: var(--white, #fff);
+      min-height: 48px;
+      padding: .8rem 2.8rem .8rem 1rem;
+      border: 1px solid var(--members-line);
+      border-radius: 5px;
+      background: #fff;
       color: var(--ink, #192940);
       font: inherit;
     }
-
-    .members-search input:focus-visible {
-      outline: 2px solid var(--gold, #c9a96e);
+    .members-search-field input:focus-visible,
+    .members-clear:focus-visible,
+    .member-card-action:focus-visible {
+      outline: 2px solid var(--members-gold);
       outline-offset: 3px;
     }
-
-    .members-count {
-      color: var(--muted, #687386);
-      font-size: 0.9rem;
+    .members-search-icon {
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
+      color: var(--members-muted);
+      pointer-events: none;
+    }
+    .members-results {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .65rem 1rem;
+      color: var(--members-muted);
+      font-size: .88rem;
+    }
+    .members-count { margin: 0; }
+    .members-clear {
+      padding: .25rem 0;
+      border: 0;
+      background: transparent;
+      color: var(--members-navy);
+      font: inherit;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
     }
 
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+      align-items: stretch;
+    }
     .member-card {
+      position: relative;
       display: flex;
       flex-direction: column;
+      min-width: 0;
       height: 100%;
+      padding: clamp(1.25rem, 3vw, 2rem);
+      border: 1px solid var(--members-line);
+      border-radius: 8px;
+      background: var(--white, #fff);
+      box-shadow: 0 5px 18px rgb(25 41 64 / 4%);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
     }
-
-    .member-card[hidden] {
-      display: none !important;
+    .member-card:hover {
+      transform: translateY(-3px);
+      border-color: #c9b58f;
+      box-shadow: 0 12px 28px rgb(25 41 64 / 9%);
     }
-
+    .member-card[hidden] { display: none !important; }
     .member-card-top {
       display: flex;
       align-items: center;
       gap: 1rem;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.35rem;
     }
-
     .member-avatar {
-      display: flex;
-      flex: 0 0 64px;
-      align-items: center;
-      justify-content: center;
-      width: 64px;
-      height: 64px;
-      border: 1px solid var(--gold, #c9a96e);
+      display: grid;
+      flex: 0 0 76px;
+      width: 76px;
+      height: 76px;
+      place-items: center;
+      border: 1px solid var(--members-gold);
       border-radius: 50%;
-      background: var(--navy, #192940);
-      color: var(--gold-light, #e4cb9b);
+      background: var(--members-navy);
+      color: #f1dfba;
       font-family: "Playfair Display", Georgia, serif;
-      font-size: 1.2rem;
-      letter-spacing: 0.04em;
+      font-size: 1.35rem;
+      letter-spacing: .05em;
     }
-
-    .member-card h3 {
-      margin: 0 0 0.35rem;
+    .member-name {
+      margin: 0 0 .4rem;
+      color: var(--members-navy);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      line-height: 1.2;
     }
-
     .member-role {
       margin: 0;
-      color: var(--muted, #687386);
-      font-size: 0.9rem;
+      color: var(--members-muted);
+      font-size: .9rem;
       line-height: 1.5;
     }
-
-    .member-status {
-      display: inline-flex;
-      align-self: flex-start;
-      margin-bottom: 1rem;
-      padding: 0.35rem 0.65rem;
-      border: 1px solid var(--line, #d8dce2);
-      border-radius: 3px;
-      font-size: 0.75rem;
-      letter-spacing: 0.04em;
+    .member-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-bottom: 1.1rem;
     }
-
+    .member-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: .25rem .6rem;
+      border: 1px solid var(--members-line);
+      border-radius: 3px;
+      color: var(--members-navy);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .045em;
+    }
+    .member-tag--gold {
+      border-color: #e0cfad;
+      background: #fbf7ef;
+      color: #765a2b;
+    }
+    .member-divider {
+      width: 2.5rem;
+      height: 2px;
+      margin: .1rem 0 1rem;
+      background: var(--members-gold);
+    }
     .member-card-description {
       flex: 1;
-      margin-bottom: 1.5rem;
+      margin: 0 0 1.5rem;
+      color: var(--members-muted);
+      line-height: 1.75;
     }
-
     .member-card-action {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
+      justify-content: space-between;
+      gap: 1rem;
       align-self: flex-start;
+      min-height: 44px;
       margin-top: auto;
+      padding: .75rem 1rem;
+      border: 1px solid var(--members-navy);
+      border-radius: 4px;
+      background: var(--members-navy);
+      color: #fff;
+      font-size: .88rem;
+      font-weight: 700;
       text-decoration: none;
+      transition: background .2s ease, color .2s ease;
     }
-
-    .member-card-action:focus-visible {
-      outline: 2px solid var(--gold, #c9a96e);
-      outline-offset: 4px;
+    .member-card-action:hover {
+      background: #fff;
+      color: var(--members-navy);
     }
-
+    .member-card-action span { font-size: 1.05rem; }
     .members-empty {
-      padding: 2rem 0;
-      color: var(--muted, #687386);
+      margin: 1rem 0 0;
+      padding: 2rem;
+      border: 1px dashed var(--members-line);
+      border-radius: 8px;
+      color: var(--members-muted);
+      text-align: center;
     }
-
-    .members-intro {
-      max-width: 760px;
+    .members-note {
+      display: flex;
+      align-items: start;
+      gap: .85rem;
+      margin-top: 2rem;
+      padding: 1.1rem 1.25rem;
+      border-left: 3px solid var(--members-gold);
+      background: var(--members-paper);
+      color: var(--members-muted);
+      font-size: .9rem;
+      line-height: 1.65;
     }
+    .members-note strong { color: var(--members-navy); }
+    .members-note p { margin: 0; }
 
-    @media (max-width: 600px) {
-      .members-toolbar {
-        align-items: stretch;
-      }
-
-      .members-search {
-        max-width: none;
-      }
+    @media (max-width: 760px) {
+      .members-overview { grid-template-columns: 1fr; }
+      .members-overview-item { min-height: auto; padding: 1rem 1.15rem; }
+      .members-overview-number { font-size: 1.45rem; }
+      .members-section-heading { display: block; }
+      .members-section-heading > p { margin-top: 1rem; }
+      .members-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 440px) {
+      .member-card-top { align-items: flex-start; gap: .8rem; }
+      .member-avatar { flex-basis: 60px; width: 60px; height: 60px; font-size: 1.1rem; }
+      .members-toolbar { padding: 1rem; }
+      .member-card { padding: 1.15rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .member-card, .member-card-action { transition: none; }
+      .member-card:hover { transform: none; }
     }
   </style>
 </head>
 
 <body>
-  <a class="skip-link" href="#main-content">
-    Aller au contenu principal
-  </a>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <div class="topline">
-    <div class="section-inner">
-      European Student Council for Law and Diplomacy
-    </div>
+    <div class="section-inner">European Student Council for Law and Diplomacy</div>
   </div>
 
   <header class="site-header">
     <div class="nav-wrap">
-      <a class="brand" href="index.html" aria-label="ESCLD, home">
-       <img
-  class="brand-mark"
-  src="/assets/logo-escld.svg"
-  alt="ESCLD"
->
+      <a class="brand" href="/index.html" aria-label="ESCLD — Home">
+        <img class="brand-mark" src="/assets/logo-escld.svg" alt="ESCLD">
         <span>
           <span class="brand-name">European Student Council</span>
           <span class="brand-sub">for Law and Diplomacy</span>
         </span>
       </a>
 
-      <button class="menu-toggle" aria-expanded="false" aria-label="Open menu">
+      <button class="menu-toggle" aria-expanded="false" aria-label="Open menu" aria-controls="main-navigation">
         Menu ☰
       </button>
 
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="/index.html" aria-current="page">Home</a>
+      <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+        <a href="/index.html">Home</a>
         <a href="/about.html">The Association</a>
         <a href="/councils.html">Our Councils</a>
         <a href="/publications.html">Publications</a>
-        <a href="members/index.html">Members</a>
+        <a href="/members/index.html" aria-current="page">Members</a>
         <a href="/join.html">Join us</a>
         <a class="nav-cta" href="/contact.html">Contact ↗</a>
       </nav>
@@ -198,151 +340,133 @@
   </header>
 
   <main id="main-content">
-    <section class="page-hero">
+    <section class="page-hero members-hero">
       <div class="page-hero-inner">
         <p class="breadcrumb">
-          <a href="../index.html">HOME</a>
+          <a href="/index.html">HOME</a>
           <span aria-hidden="true"> / </span>
           REPRESENTATIVE MEMBERS
         </p>
+        <p class="members-eyebrow">Our people · Our mission</p>
+        <h1>Representative Members</h1>
+        <div class="members-intro">
+          <p>
+            Meet the people entrusted with representative responsibilities within the European Student Council for Law and Diplomacy. Each profile offers a closer look at their role and contribution to the Association.
+          </p>
+        </div>
 
-        <h1>Our representative members</h1>
-
-        <p class="members-intro">
-          Discover the people contributing to the development of the European Student Council for Law and Diplomacy and view their individual digital business cards. 
-          Only members holding representative positions are featured here.
-        </p>
+        <div class="members-overview" aria-label="Membership directory overview">
+          <div class="members-overview-item">
+            <span class="members-overview-number">02</span>
+            <span class="members-overview-label">Representative profiles currently listed</span>
+          </div>
+          <div class="members-overview-item">
+            <span class="members-overview-number">01</span>
+            <span class="members-overview-label">Executive Board represented</span>
+          </div>
+          <div class="members-overview-item">
+            <span class="members-overview-number">01</span>
+            <span class="members-overview-label">Specialist Council represented</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" aria-labelledby="directory-title">
       <div class="section-inner">
-        <div class="section-heading">
-          <p class="small-label">Organisation</p>
-          <h2>The people behind the Association</h2>
+        <div class="members-section-heading">
+          <div class="section-heading">
+            <p class="small-label">The Association</p>
+            <h2 id="directory-title">The people behind the ESCLD</h2>
+          </div>
           <p>
-            Select a profile to view the corresponding digital card.
+            This directory features members who hold representative responsibilities. Select a profile to view the corresponding digital card.
           </p>
         </div>
 
         <div class="members-toolbar">
           <div class="members-search">
-            <label for="member-search">Search for a member</label>
-            <input
-              id="member-search"
-              type="search"
-              placeholder="Name, position, or role…"
-              autocomplete="off"
-            >
+            <label for="member-search">Find a representative</label>
+            <div class="members-search-field">
+              <input
+                id="member-search"
+                type="search"
+                placeholder="Search by name, position or council…"
+                autocomplete="off"
+                aria-controls="members-grid"
+              >
+              <span class="members-search-icon" aria-hidden="true">⌕</span>
+            </div>
           </div>
-
-          <p
-            class="members-count"
-            id="members-count"
-            aria-live="polite"
-          >
-            2 profils
-          </p>
+          <div class="members-results">
+            <p class="members-count" id="members-count" aria-live="polite">2 profiles</p>
+            <button class="members-clear" id="clear-search" type="button" hidden>Clear search</button>
+          </div>
         </div>
 
-        <div class="card-grid" id="members-grid">
-          <!-- Profil du président -->
-          <article
-            class="info-card member-card"
-            data-member
-            data-search="alvin nowakowski founding president constituational law and legal theory council director"
-          >
+        <div class="members-grid" id="members-grid">
+          <article class="member-card" data-member data-search="alvin nowakowski founding president executive board constitutional law legal theory council director">
             <div class="member-card-top">
               <div class="member-avatar" aria-hidden="true">AN</div>
-
               <div>
-                <h3>Alvin Nowakowski</h3>
-                <p class="member-role">
-                  Founding President<br>Constitutional Law and Legal Theory Council Director
-                </p>
+                <h3 class="member-name">Alvin Nowakowski</h3>
+                <p class="member-role">Founding President<br>Director, Constitutional Law and Legal Theory Council</p>
               </div>
             </div>
-
-            <span class="member-status">
-              Executive Board
-            </span>
-
-             <span class="member-status">
-              Council Director
-            </span>
-
+            <div class="member-tags">
+              <span class="member-tag member-tag--gold">Executive Board</span>
+              <span class="member-tag">Council Director</span>
+            </div>
+            <div class="member-divider" aria-hidden="true"></div>
             <p class="member-card-description">
-             A passionate admirer of law, diplomacy, Europe, and international relations.
+              Interested in law, diplomacy, European affairs and international relations, with a commitment to building an open space for academic exchange and cooperation.
             </p>
-
-            <a
-              class="button member-card-action"
-              href="president.html"
-              aria-label="Consulter la carte virtuelle d’Alvin Nowakowski"
-            >
-              View digital card
-              <span aria-hidden="true">↗</span>
+            <a class="member-card-action" href="/members/president.html" aria-label="View Alvin Nowakowski’s digital card">
+              <span>View digital card</span><span aria-hidden="true">↗</span>
             </a>
           </article>
 
-          <!-- Profil de la cofondatrice -->
-          <article
-            class="info-card member-card"
-            data-member
-            data-search="chirelle biabaro founding vice-president vice president"
-          >
+          <article class="member-card" data-member data-search="chirelle biabaro founding vice-president vice president executive board">
             <div class="member-card-top">
               <div class="member-avatar" aria-hidden="true">CB</div>
-
               <div>
-                <h3>Chirelle Biabaro</h3>
-                <p class="member-role">
-                  Founding Vice-President
-                </p>
+                <h3 class="member-name">Chirelle Biabaro</h3>
+                <p class="member-role">Founding Vice-President</p>
               </div>
             </div>
-
-            <span class="member-status">
-              Executive Board
-            </span>
-
+            <div class="member-tags">
+              <span class="member-tag member-tag--gold">Executive Board</span>
+            </div>
+            <div class="member-divider" aria-hidden="true"></div>
             <p class="member-card-description">
-              Committed to combating harassment and supporting international associations.
+              Committed to combating harassment and supporting international associations, and to fostering a respectful and collaborative community.
             </p>
-
-            <a
-              class="button member-card-action"
-              href="vice-president.html"
-              aria-label="Consulter la carte virtuelle de Chirelle Biabaro"
-            >
-              View digital card
-              <span aria-hidden="true">↗</span>
+            <a class="member-card-action" href="/members/vice-president.html" aria-label="View Chirelle Biabaro’s digital card">
+              <span>View digital card</span><span aria-hidden="true">↗</span>
             </a>
           </article>
         </div>
 
-        <p
-          class="members-empty"
-          id="members-empty"
-          hidden
-        >
-          No profiles match your search.
+        <p class="members-empty" id="members-empty" role="status" hidden>
+          No representatives match your search. Try another name or role.
         </p>
+
+        <aside class="members-note">
+          <span aria-hidden="true">✦</span>
+          <p><strong>Interested in contributing?</strong> The ESCLD welcomes applications from students and young people interested in law, diplomacy, international relations and European affairs. <a href="/join.html">Discover how to join us.</a></p>
+        </aside>
       </div>
     </section>
 
     <section class="dark-section">
       <div class="section-inner">
         <div class="two-col">
-          <div>
-
-            <h2>The ESCLD</h2>
-          </div>
-
+          <div><p class="small-label">Our purpose</p><h2>Ideas across borders.</h2></div>
           <div>
             <p>
-              The European Student Council for Law and Diplomacy brings together students and young people who wish to deepen their understanding of law, diplomacy, international relations and European affairs.
+              The European Student Council for Law and Diplomacy brings together students and young people who wish to deepen their understanding of law, diplomacy, international relations and European affairs through dialogue, research and academic cooperation.
             </p>
+            <p><a href="/about.html">Learn more about the Association ↗</a></p>
           </div>
         </div>
       </div>
@@ -353,36 +477,27 @@
     <div class="footer-inner">
       <div class="footer-grid">
         <div>
-          <a class="brand" href="index.html">
-            <img
-  class="brand-mark"
-  src="/assets/logo-escld.svg"
-  alt="ESCLD"
->
+          <a class="brand" href="/index.html">
+            <img class="brand-mark" src="/assets/logo-escld.svg" alt="ESCLD">
             <span>
               <span class="brand-name">European Student Council</span>
               <span class="brand-sub">for Law and Diplomacy</span>
             </span>
           </a>
-
-          <p>
-            A student-led association dedicated to promoting the study and understanding of law, diplomacy, international relations and European affairs.
-          </p>
+          <p>A student-led association dedicated to promoting the study and understanding of law, diplomacy, international relations and European affairs.</p>
         </div>
-
         <div>
-          <h3>To Explore</h3>
+          <h3>Explore</h3>
           <div class="footer-links">
             <a href="/about.html">The Association</a>
             <a href="/councils.html">Our Councils</a>
             <a href="/publications.html">Publications</a>
-            <a href="members/index.html">Representative members</a>
+            <a href="/members/index.html">Representative Members</a>
             <a href="/join.html">Join us</a>
           </div>
         </div>
-
         <div>
-          <h3>Contact us</h3>
+          <h3>Contact</h3>
           <div class="footer-links">
             <a href="mailto:contact@escld.eu">contact@escld.eu</a>
             <a href="/contact.html">Contact form</a>
@@ -390,65 +505,46 @@
           </div>
         </div>
       </div>
-
       <div class="footer-bottom">
-        <span>
-          © <span data-year></span> European Student Council for Law and Diplomacy
-        </span>
-
+        <span>© <span data-year></span> European Student Council for Law and Diplomacy</span>
         <span>Du droit naissent les voix qui rapprochent les nations</span>
       </div>
     </div>
   </footer>
 
-
-  <script src="../assets/script.js"></script>
-
+  <script src="/assets/script.js"></script>
   <script>
     (() => {
       const searchInput = document.getElementById("member-search");
-      const members = Array.from(
-        document.querySelectorAll("[data-member]")
-      );
+      const members = Array.from(document.querySelectorAll("[data-member]"));
       const count = document.getElementById("members-count");
       const emptyMessage = document.getElementById("members-empty");
-      const year = document.getElementById("current-year");
-
-      if (year) {
-        year.textContent = new Date().getFullYear();
-      }
+      const clearButton = document.getElementById("clear-search");
 
       function filterMembers() {
-        const query = (searchInput.value || "")
-          .trim()
-          .toLocaleLowerCase("fr");
-
+        const query = (searchInput.value || "").trim().toLocaleLowerCase();
         let visibleCount = 0;
 
-        members.forEach(member => {
+        members.forEach((member) => {
           const searchableText = (
-            member.dataset.search || member.textContent
-          ).toLocaleLowerCase("fr");
-
+            (member.dataset.search || "") + " " + member.textContent
+          ).toLocaleLowerCase();
           const matches = searchableText.includes(query);
-
           member.hidden = !matches;
-
-          if (matches) {
-            visibleCount++;
-          }
+          if (matches) visibleCount++;
         });
 
-        count.textContent =
-          visibleCount +
-          (visibleCount === 1 ? " profil" : " profils");
-
+        count.textContent = `${visibleCount} ${visibleCount === 1 ? "profile" : "profiles"}`;
         emptyMessage.hidden = visibleCount !== 0;
+        clearButton.hidden = query.length === 0;
       }
 
-      if (searchInput) {
-        searchInput.addEventListener("input", filterMembers);
-      }
+      searchInput.addEventListener("input", filterMembers);
+      clearButton.addEventListener("click", () => {
+        searchInput.value = "";
+        filterMembers();
+        searchInput.focus();
+      });
     })();
   </script>
 </body>
