@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,6 +13,7 @@
 
   <style>
     /* Executive Board directory */
+
     .directory-section {
       padding: 76px 24px;
       background: #080808;
@@ -170,6 +170,232 @@
       text-decoration: underline;
     }
 
+    /* ESCLD Search Hub */
+
+    .resource-hub {
+      padding: 76px 24px;
+      background: #101e35;
+      color: #fff;
+      border-top: 1px solid #2a3850;
+      border-bottom: 1px solid #2a3850;
+    }
+
+    .resource-hub-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .resource-hub-heading {
+      max-width: 700px;
+      margin-bottom: 28px;
+    }
+
+    .resource-hub-label {
+      color: #d9b76d;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .resource-hub-heading h2 {
+      margin: 12px 0;
+      color: #fff;
+      font-size: clamp(28px, 4vw, 40px);
+    }
+
+    .resource-hub-heading p {
+      color: #c0c8d4;
+      line-height: 1.8;
+    }
+
+    .resource-search-wrap {
+      position: relative;
+      display: block;
+      margin: 26px 0 16px;
+    }
+
+    #resourceSearch {
+      display: block;
+      width: 100%;
+      min-height: 56px;
+      padding: 15px 18px 15px 48px;
+      border: 1px solid #655638;
+      border-radius: 8px;
+      outline: none;
+      background: #0b1424;
+      color: #fff;
+      font: inherit;
+      font-size: 15px;
+    }
+
+    #resourceSearch::placeholder {
+      color: #a8afbb;
+    }
+
+    #resourceSearch:focus {
+      border-color: #d9b76d;
+      box-shadow: 0 0 0 3px #d9b76d22;
+    }
+
+    .resource-search-icon {
+      position: absolute;
+      top: 50%;
+      left: 17px;
+      transform: translateY(-50%);
+      color: #d9b76d;
+      font-size: 20px;
+      pointer-events: none;
+    }
+
+    .resource-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 12px;
+    }
+
+    .resource-filter {
+      border: 1px solid #46536a;
+      border-radius: 999px;
+      padding: 8px 13px;
+      background: transparent;
+      color: #d6dce5;
+      font: inherit;
+      font-size: 12px;
+      cursor: pointer;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+
+    .resource-filter:hover,
+    .resource-filter.active {
+      border-color: #d9b76d;
+      background: #d9b76d;
+      color: #101e35;
+    }
+
+    .resource-filter:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 3px;
+    }
+
+    .resource-status {
+      color: #aeb8c7;
+      font-size: 12px;
+      margin: 10px 0 22px;
+    }
+
+    #resourceResults {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .resource-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 175px;
+      padding: 19px;
+      border: 1px solid #344158;
+      border-radius: 8px;
+      background: #142239;
+      color: #fff;
+      text-decoration: none;
+      transition: background .2s, border-color .2s, transform .2s;
+    }
+
+    .resource-card:hover {
+      background: #1a2b45;
+      border-color: #9b824e;
+      transform: translateY(-2px);
+    }
+
+    .resource-card:focus-visible {
+      outline: 2px solid #d9b76d;
+      outline-offset: 3px;
+    }
+
+    .resource-card[hidden] {
+      display: none !important;
+    }
+
+    .resource-card-top {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 17px;
+    }
+
+    .resource-card-icon {
+      width: 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      background: #263650;
+      color: #e2c47f;
+      font-size: 18px;
+    }
+
+    .resource-type {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #263650;
+      color: #e2c47f;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .resource-card strong {
+      color: #fff;
+      font-size: 15px;
+      line-height: 1.4;
+      margin-bottom: 7px;
+    }
+
+    .resource-card p {
+      color: #bdc6d3;
+      font-size: 12px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .resource-card .resource-open {
+      margin-top: auto;
+      padding-top: 16px;
+      color: #e2c47f;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .resource-empty {
+      display: none;
+      grid-column: 1 / -1;
+      padding: 25px;
+      border: 1px solid #344158;
+      border-radius: 8px;
+      color: #bdc6d3;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    .resource-empty strong {
+      display: block;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+
+    @media (max-width: 800px) {
+      #resourceResults {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
     @media (max-width: 600px) {
       .directory-section {
         padding: 54px 18px;
@@ -181,6 +407,18 @@
 
       .member-result {
         padding: 17px;
+      }
+
+      .resource-hub {
+        padding: 54px 18px;
+      }
+
+      #resourceResults {
+        grid-template-columns: 1fr;
+      }
+
+      .resource-card {
+        min-height: 150px;
       }
     }
   </style>
@@ -194,19 +432,22 @@
   <!-- Header and navigation -->
   <header class="site-header">
     <div class="nav-wrap">
+
       <a class="brand" href="index.html" aria-label="ESCLD, home">
-       <img
-  class="brand-mark"
-  src="/assets/logo-escld.svg"
-  alt="ESCLD"
->
+        <img
+          class="brand-mark"
+          src="/assets/logo-escld.svg"
+          alt="ESCLD"
+        >
         <span>
           <span class="brand-name">European Student Council</span>
           <span class="brand-sub">for Law and Diplomacy</span>
         </span>
       </a>
 
-      <button class="menu-toggle" aria-expanded="false" aria-label="Open menu">
+      <button class="menu-toggle"
+              aria-expanded="false"
+              aria-label="Open menu">
         Menu ☰
       </button>
 
@@ -216,9 +457,11 @@
         <a href="councils.html">Our Councils</a>
         <a href="publications.html">Publications</a>
         <a href="members/index.html">Members</a>
+        <a href="#site-directory">Search</a>
         <a href="join.html">Join us</a>
         <a class="nav-cta" href="contact.html">Contact ↗</a>
       </nav>
+
     </div>
   </header>
 
@@ -227,6 +470,7 @@
     <!-- Hero section -->
     <section class="hero">
       <div class="hero-inner">
+
         <div>
           <div class="eyebrow">A European student initiative</div>
 
@@ -236,7 +480,10 @@
           </h1>
 
           <p class="hero-copy">
-            The European Student Council for Law and Diplomacy brings together students and young people who wish to deepen their understanding of law, diplomacy, international relations and European affairs.
+            The European Student Council for Law and Diplomacy brings
+            together students and young people who wish to deepen their
+            understanding of law, diplomacy, international relations
+            and European affairs.
           </p>
 
           <div class="hero-actions">
@@ -258,19 +505,24 @@
             <div class="seal-caption">Law · Diplomacy · Europe</div>
           </div>
         </div>
+
       </div>
     </section>
 
     <!-- Organisation section -->
     <section class="section">
       <div class="section-inner two-col">
+
         <div>
           <div class="small-label">A decentralised organisation</div>
 
           <h2>The establishment of councils, departments, and committees.</h2>
 
           <p>
-            The association is structured around several Councils, each overseeing different Departments. Each Department may include Committees dedicated to specific areas of work, which can be either permanent or independent.
+            The association is structured around several Councils, each
+            overseeing different Departments. Each Department may include
+            Committees dedicated to specific areas of work, which can be
+            either permanent or independent.
           </p>
 
           <a class="text-link" href="about.html">
@@ -280,32 +532,40 @@
 
         <div class="quote-panel">
           <p>
-            « The ESCLD brings together students and young people interested in law, diplomacy, and international affairs, fostering dialogue, cooperation, and the growth of an international network. »
+            « The ESCLD brings together students and young people
+            interested in law, diplomacy, and international affairs,
+            fostering dialogue, cooperation, and the growth of an
+            international network. »
           </p>
 
           <span>The approach of the ESCLD</span>
         </div>
+
       </div>
     </section>
 
     <!-- Areas of interest -->
     <section class="section dark-section">
       <div class="section-inner">
+
         <div class="section-heading">
           <div class="small-label">Our areas of interest</div>
           <h2>Interconnected disciplines.</h2>
 
           <p>
-            A cross-disciplinary approach to contemporary legal, political, and international issues.
+            A cross-disciplinary approach to contemporary legal,
+            political, and international issues.
           </p>
         </div>
 
         <div class="feature-grid">
+
           <article class="feature-card">
             <div class="feature-number">01</div>
             <h3>Law &amp; Institutions</h3>
             <p>
-              Explore legal systems, the theory of the state, constitutional law, and the functioning of institutions.
+              Explore legal systems, the theory of the state,
+              constitutional law, and the functioning of institutions.
             </p>
           </article>
 
@@ -313,7 +573,9 @@
             <div class="feature-number">02</div>
             <h3>Diplomacy &amp; International Relations</h3>
             <p>
-              Understand relations between international actors, diplomatic negotiations, and the challenges of international cooperation.
+              Understand relations between international actors,
+              diplomatic negotiations, and the challenges of
+              international cooperation.
             </p>
           </article>
 
@@ -321,9 +583,11 @@
             <div class="feature-number">03</div>
             <h3>Europe &amp; Fundamental Rights</h3>
             <p>
-              Study European governance, fundamental freedoms, and the protection of human rights.
+              Study European governance, fundamental freedoms,
+              and the protection of human rights.
             </p>
           </article>
+
         </div>
       </div>
     </section>
@@ -331,12 +595,16 @@
     <!-- Association development -->
     <section class="section">
       <div class="section-inner two-col">
+
         <div>
           <div class="small-label">Building our association</div>
           <h2>Learn together. Act with purpose.</h2>
 
           <p>
-            The ESCLD is building a student-led structure organised around thematic councils and collaborative work. Its activities may include publications, debates, meetings, and academic cooperation projects.
+            The ESCLD is building a student-led structure organised
+            around thematic councils and collaborative work. Its
+            activities may include publications, debates, meetings,
+            and academic cooperation projects.
           </p>
 
           <a class="text-link" href="councils.html">
@@ -346,6 +614,7 @@
 
         <div>
           <div class="stat-row">
+
             <div class="stat">
               <strong>Students</strong>
               <span>At the heart of our mission</span>
@@ -360,22 +629,27 @@
               <strong>Sharing</strong>
               <span>A working method</span>
             </div>
+
           </div>
 
           <div style="margin-top:28px" class="notice">
-            Activities, recruitment opportunities, and events will be announced as they develop. Feel free to contact us at
+            Activities, recruitment opportunities, and events will be
+            announced as they develop. Feel free to contact us at
             <a href="mailto:contact@escld.eu">contact@escld.eu</a>.
           </div>
         </div>
+
       </div>
     </section>
 
     <!-- Invitation to participate -->
     <section class="section" style="padding-top:0">
       <div class="section-inner">
+
         <div class="quote-panel">
           <p>
-            Would you like to contribute to a student-led initiative dedicated to law and international affairs?
+            Would you like to contribute to a student-led initiative
+            dedicated to law and international affairs?
           </p>
 
           <span>Students, early-career researchers, and academic partners</span>
@@ -384,15 +658,18 @@
             Explore ways to get involved ↗
           </a>
         </div>
+
       </div>
     </section>
 
-    <!-- Executive Board directory: placed immediately after the hero -->
+    <!-- Executive Board directory -->
     <section class="directory-section" id="executive-board">
       <div class="directory-inner">
+
         <div class="directory-heading">
           <div class="directory-label">Leadership &amp; Representation</div>
           <h2>Our Representative members</h2>
+
           <p>
             Find an ESCLD representative by name or position and access
             their official association role card.
@@ -405,6 +682,7 @@
 
         <div class="directory-search-wrap">
           <span class="directory-search-icon" aria-hidden="true">⌕</span>
+
           <input
             type="search"
             id="memberSearch"
@@ -429,6 +707,282 @@
         </a>
 
         <p class="directory-help" id="searchStatus" role="status"></p>
+
+      </div>
+    </section>
+
+    <!-- ESCLD Search Hub -->
+    <section class="resource-hub" id="site-directory">
+      <div class="resource-hub-inner">
+
+        <div class="resource-hub-heading">
+          <div class="resource-hub-label">Explore the institution</div>
+
+          <h2>Find your way through the ESCLD.</h2>
+
+          <p>
+            Search the association’s pages, councils, member profiles
+            and publications from one place. Search by title, name,
+            subject or keyword, or filter the directory by resource type.
+          </p>
+        </div>
+
+        <label class="resource-search-wrap" for="resourceSearch">
+          <span class="resource-search-icon" aria-hidden="true">⌕</span>
+
+          <input
+            type="search"
+            id="resourceSearch"
+            placeholder="Search pages, councils, members, publications..."
+            autocomplete="off"
+            aria-describedby="resourceHelp resourceStatus"
+          >
+        </label>
+
+        <div class="resource-filters"
+             role="group"
+             aria-label="Filter resources by type">
+
+          <button class="resource-filter active"
+                  type="button"
+                  data-resource-filter="all"
+                  aria-pressed="true">
+            All resources
+          </button>
+
+          <button class="resource-filter"
+                  type="button"
+                  data-resource-filter="page"
+                  aria-pressed="false">
+            Pages
+          </button>
+
+          <button class="resource-filter"
+                  type="button"
+                  data-resource-filter="council"
+                  aria-pressed="false">
+            Councils
+          </button>
+
+          <button class="resource-filter"
+                  type="button"
+                  data-resource-filter="member"
+                  aria-pressed="false">
+            Members
+          </button>
+
+          <button class="resource-filter"
+                  type="button"
+                  data-resource-filter="publication"
+                  aria-pressed="false">
+            Publications
+          </button>
+
+        </div>
+
+        <p class="resource-status"
+           id="resourceStatus"
+           role="status"
+           aria-live="polite">
+          All resources are displayed.
+        </p>
+
+        <div id="resourceResults">
+
+          <!-- Institutional pages -->
+
+          <a class="resource-card"
+             data-resource-type="page"
+             data-search="home homepage mission overview association accueil"
+             href="index.html">
+
+            <div class="resource-card-top">
+              <span class="resource-card-icon" aria-hidden="true">⌂</span>
+              <span class="resource-type">Page</span>
+            </div>
+
+            <strong>Home</strong>
+            <p>Discover the ESCLD, its purpose and areas of interest.</p>
+            <span class="resource-open">Open page ↗</span>
+          </a>
+
+          <a class="resource-card"
+             data-resource-type="page"
+             data-search="about association mission history organisation governance institution"
+             href="about.html">
+
+            <div class="resource-card-top">
+              <span class="resource-card-icon" aria-hidden="true">◎</span>
+              <span class="resource-type">Page</span>
+            </div>
+
+            <strong>The Association</strong>
+            <p>Learn about the association’s mission and organisation.</p>
+            <span class="resource-open">Open page ↗</span>
+          </a>
+
+          <a class="resource-card"
+             data-resource-type="page"
+             data-search="councils directory departments committees organisation"
+             href="councils.html">
+
+            <div class="resource-card-top">
+              <span class="resource-card-icon" aria-hidden="true">⌘</span>
+              <span class="resource-type">Directory</span>
+            </div>
+
+            <strong>Our Councils</strong>
+            <p>Browse the ESCLD’s thematic councils and areas of work.</p>
+            <span class="resource-open">Explore councils ↗</span>
+          </a>
+
+          <!-- Justice and Litigation Council -->
+
+          <a class="resource-card"
+             data-resource-type="council"
+             data-search="justice litigation courts legal proceedings disputes legal action contentieux action en justice"
+             href="justice-litigation-council.html">
+
+            <div class="resource-card-top">
+              <span class="resource-card-icon" aria-hidden="true">§</span>
+              <span class="resource-type">Council</span>
+            </div>
+
+            <strong>Justice and Litigation Council</strong>
+            <p>
+              Explore the council dedicated to justice, litigation
+              and legal proceedings.
+            </p>
+            <span class="resource-open">Open council page ↗</span>
+          </a>
+
+          <!-- Publications -->
+
+          <a class="resource-card"
+             data-resource-type="publication"
+             data-search="publications articles research analysis papers legal scholarship travaux"
+             href="publications.html">
+
+            <div class="resource-card-top">
+              <span class="resource-card-icon" aria-hidden="true">▤</span>
+              <span class="resource-type">Publications</span>
+            </div>
+
+            <strong>Publications</strong>
+            <p>
+              Find the association’s published work, analysis
+              and research contributions.
+            </p>
+            <span class="resource-open">Browse publications ↗</span>
+          </a>
+
+          <!-- Members directory -->
+
+          <a class="resource-card"
+             data-resource-type="member"
+             data-search="members people representatives leadership profiles president annuaire"
+             href="members/index.html">
+
+            <div class="resource-card-top">
+              <span class="resource-card-icon" aria-hidden="true">♙</span>
+              <span class="resource-type">Members</span>
+            </div>
+
+            <strong>Members Directory</strong>
+            <p>
+              Find representative member profiles and official
+              association roles.
+            </p>
+            <span class="resource-open">Browse members ↗</span>
+          </a>
+
+          <!-- President profile -->
+
+          <a class="resource-card"
+             data-resource-type="member"
+             data-search="Alvin Nowakowski founding president constitutional law legal theory council director"
+             href="members/president.html">
+
+            <div class="resource-card-top">
+              <span class="resource-card-icon" aria-hidden="true">♔</span>
+              <span class="resource-type">Member profile</span>
+            </div>
+
+            <strong>President</strong>
+            <p>
+              Access the official profile page of the founding president.
+            </p>
+            <span class="resource-open">View profile ↗</span>
+          </a>
+
+          <!-- Membership -->
+
+          <a class="resource-card"
+             data-resource-type="page"
+             data-search="join membership participate become member involvement adhésion"
+             href="join.html">
+
+            <div class="resource-card-top">
+              <span class="resource-card-icon" aria-hidden="true">＋</span>
+              <span class="resource-type">Participation</span>
+            </div>
+
+            <strong>Join us</strong>
+            <p>
+              Learn how to participate in the association
+              and explore membership.
+            </p>
+            <span class="resource-open">Find out more ↗</span>
+          </a>
+
+          <!-- Contact -->
+
+          <a class="resource-card"
+             data-resource-type="page"
+             data-search="contact email message questions get in touch"
+             href="contact.html">
+
+            <div class="resource-card-top">
+              <span class="resource-card-icon" aria-hidden="true">✉</span>
+              <span class="resource-type">Contact</span>
+            </div>
+
+            <strong>Contact</strong>
+            <p>Get in touch with the association for enquiries and correspondence.</p>
+            <span class="resource-open">Contact the ESCLD ↗</span>
+          </a>
+
+          <!-- Legal information -->
+
+          <a class="resource-card"
+             data-resource-type="page"
+             data-search="legal notice privacy legal information mentions légales"
+             href="legal.html">
+
+            <div class="resource-card-top">
+              <span class="resource-card-icon" aria-hidden="true">⚖</span>
+              <span class="resource-type">Legal</span>
+            </div>
+
+            <strong>Legal Notice</strong>
+            <p>Consult the website’s legal and administrative information.</p>
+            <span class="resource-open">Open page ↗</span>
+          </a>
+
+          <!-- Empty search state -->
+
+          <div class="resource-empty" id="resourceEmpty">
+            <strong>No matching resources</strong>
+            Try another keyword or select a different category.
+          </div>
+
+        </div>
+
+        <p class="directory-help" id="resourceHelp">
+          Search examples: “litigation”, “European institutions”,
+          “President”, “membership” or “publications”.
+        </p>
+
       </div>
     </section>
 
@@ -437,99 +991,104 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-inner">
-        <div class="footer-grid">
 
-            <!-- Association -->
-            <div>
-                <a class="brand" href="index.html">
-                    <img
-                        class="brand-mark"
-                        src="/assets/logo-escld.svg"
-                        alt="ESCLD"
-                    >
-                    <span>
-                        <span class="brand-name">European Student Council</span>
-                        <span class="brand-sub">for Law and Diplomacy</span>
-                    </span>
-                </a>
+      <div class="footer-grid">
 
-                <p>
-                    A student-led association dedicated to promoting the study
-                    and understanding of law, diplomacy, international relations,
-                    and European affairs.
-                </p>
-            </div>
-
-            <!-- Navigation -->
-            <div>
-                <h3>To Explore</h3>
-                <div class="footer-links">
-                    <a href="about.html">The Association</a>
-                    <a href="councils.html">Our Councils</a>
-                    <a href="publications.html">Publications</a>
-                    <a href="members/index.html">Representative members</a>
-                    <a href="join.html">Join us</a>
-                </div>
-            </div>
-
-            <!-- Social media -->
-            <div>
-                <h3>Follow us</h3>
-                <div class="footer-links">
-                    <a
-                        href="https://www.linkedin.com/company/escld/home"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        LinkedIn
-                    </a>
-
-                    <a
-                        href="https://instagram.com/escld.eu"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Instagram
-                    </a>
-                </div>
-            </div>
-
-            <!-- Contact -->
-            <div>
-                <h3>Contact us</h3>
-                <div class="footer-links">
-                    <a href="mailto:contact@escld.eu">
-                        contact@escld.eu
-                    </a>
-                    <a href="contact.html">Contact form</a>
-                    <a href="legal.html">Legal notice</a>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Bottom bar -->
-        <div class="footer-bottom">
-            <span>
-                © <span data-year></span>
-                European Student Council for Law and Diplomacy
-            </span>
+        <!-- Association -->
+        <div>
+          <a class="brand" href="index.html">
+            <img
+              class="brand-mark"
+              src="/assets/logo-escld.svg"
+              alt="ESCLD"
+            >
 
             <span>
-                Du droit naissent les voix qui rapprochent les nations
+              <span class="brand-name">European Student Council</span>
+              <span class="brand-sub">for Law and Diplomacy</span>
             </span>
+          </a>
+
+          <p>
+            A student-led association dedicated to promoting the study
+            and understanding of law, diplomacy, international relations,
+            and European affairs.
+          </p>
         </div>
+
+        <!-- Navigation -->
+        <div>
+          <h3>To Explore</h3>
+
+          <div class="footer-links">
+            <a href="about.html">The Association</a>
+            <a href="councils.html">Our Councils</a>
+            <a href="justice-litigation-council.html">Justice and Litigation Council</a>
+            <a href="publications.html">Publications</a>
+            <a href="members/index.html">Representative members</a>
+            <a href="#site-directory">Search the website</a>
+            <a href="join.html">Join us</a>
+          </div>
+        </div>
+
+        <!-- Social media -->
+        <div>
+          <h3>Follow us</h3>
+
+          <div class="footer-links">
+            <a
+              href="https://www.linkedin.com/company/escld/home"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+
+            <a
+              href="https://instagram.com/escld.eu"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h3>Contact us</h3>
+
+          <div class="footer-links">
+            <a href="mailto:contact@escld.eu">
+              contact@escld.eu
+            </a>
+
+            <a href="contact.html">Contact form</a>
+            <a href="legal.html">Legal notice</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom">
+        <span>
+          © <span data-year></span>
+          European Student Council for Law and Diplomacy
+        </span>
+
+        <span>
+          Du droit naissent les voix qui rapprochent les nations
+        </span>
+      </div>
+
     </div>
-</footer>
+  </footer>
 
   <script src="assets/script.js"></script>
 
+  <!-- Existing member directory search -->
   <script>
-    /*
-      IMPORTANT:
-      Replace the example entries below with real members and pages.
-      Each URL must point to an existing HTML file in your repository.
-    */
     const members = [
       {
         name: "Alvin Nowakowski",
@@ -541,12 +1100,6 @@
         role: "Human Rights and Fundamental Freedoms Council Director",
         url: "members/human-rights-and-fundamental-freedoms-council-director.html"
       }
-      // Add other members here, separated by commas:
-      // {
-      //   name: "First Name LAST NAME",
-      //   role: "Secretary General",
-      //   url: "members/secretary-general.html"
-      // }
     ];
 
     const searchInput = document.getElementById("memberSearch");
@@ -570,6 +1123,7 @@
         message.className = "directory-empty";
         message.textContent =
           "Start typing to search the Executive Board directory.";
+
         results.appendChild(message);
         return;
       }
@@ -586,6 +1140,7 @@
         message.className = "directory-empty";
         message.textContent =
           "No matching member found. Please try another name or position.";
+
         results.appendChild(message);
         searchStatus.textContent = "No results found.";
         return;
@@ -622,5 +1177,90 @@
       renderResults(event.target.value);
     });
   </script>
+
+  <!-- ESCLD Search Hub functionality -->
+  <script>
+    (() => {
+      const input = document.getElementById("resourceSearch");
+
+      const cards = [
+        ...document.querySelectorAll(".resource-card")
+      ];
+
+      const buttons = [
+        ...document.querySelectorAll(".resource-filter")
+      ];
+
+      const empty = document.getElementById("resourceEmpty");
+      const status = document.getElementById("resourceStatus");
+
+      if (!input || !cards.length) return;
+
+      let activeFilter = "all";
+
+      function normalize(value) {
+        return value
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLowerCase()
+          .trim();
+      }
+
+      function updateResources() {
+        const query = normalize(input.value);
+        let visible = 0;
+
+        cards.forEach(card => {
+          const haystack = normalize([
+            card.innerText,
+            card.dataset.search || "",
+            card.getAttribute("href") || ""
+          ].join(" "));
+
+          const typeMatches =
+            activeFilter === "all" ||
+            card.dataset.resourceType === activeFilter;
+
+          const textMatches =
+            !query || haystack.includes(query);
+
+          const show = typeMatches && textMatches;
+
+          card.hidden = !show;
+
+          if (show) visible++;
+        });
+
+        empty.style.display = visible ? "none" : "block";
+
+        status.textContent =
+          `${visible} resource${visible === 1 ? "" : "s"} found`;
+      }
+
+      input.addEventListener("input", updateResources);
+
+      buttons.forEach(button => {
+        button.addEventListener("click", () => {
+          activeFilter = button.dataset.resourceFilter;
+
+          buttons.forEach(item => {
+            const selected = item === button;
+
+            item.classList.toggle("active", selected);
+
+            item.setAttribute(
+              "aria-pressed",
+              String(selected)
+            );
+          });
+
+          updateResources();
+        });
+      });
+
+      updateResources();
+    })();
+  </script>
+
 </body>
 </html>
