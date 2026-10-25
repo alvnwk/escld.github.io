@@ -8,6 +8,43 @@
   <title>Justice and Litigation Council | ESCLD</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .jlc-hero { position: relative; overflow: hidden; }
+    .jlc-hero .page-hero-inner { position: relative; z-index: 1; }
+    .jlc-mark {
+      display:inline-flex; align-items:center; justify-content:center;
+      width:58px; height:58px; margin-bottom:22px; border:1px solid rgba(216,189,130,.6);
+      color:#d8bd82; font-size:28px; border-radius:50%;
+    }
+    .jlc-kicker { color:#d8bd82; letter-spacing:.16em; text-transform:uppercase; font-size:.76rem; font-weight:700; }
+    .jlc-lead { max-width:780px; font-size:1.12rem; }
+    .jlc-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:30px; }
+    .jlc-stat { border:1px solid rgba(216,189,130,.35); border-radius:12px; padding:18px; }
+    .jlc-stat strong { display:block; color:#d8bd82; font-size:1.05rem; margin-bottom:5px; }
+    .jlc-stat span { font-size:.92rem; opacity:.9; }
+    .jlc-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    .jlc-card { height:100%; }
+    .jlc-card .icon { font-size:1.55rem; }
+    .jlc-card h3 { margin-top:10px; }
+    .jlc-step { display:grid; grid-template-columns:58px 1fr; gap:18px; align-items:start; }
+    .jlc-step-num { display:flex; align-items:center; justify-content:center; width:48px; height:48px; border:1px solid #d8bd82; color:#142b46; border-radius:50%; font-weight:800; }
+    .jlc-structure { display:grid; gap:18px; max-width:850px; margin:0 auto; }
+    .jlc-level { border:1px solid rgba(20,43,70,.18); border-radius:12px; padding:20px 22px; background:#fff; }
+    .jlc-level h3 { margin:0 0 7px; }
+    .jlc-level p { margin:0; }
+    .jlc-level-top { background:#142b46; color:#fff; border-color:#142b46; }
+    .jlc-level-top h3 { color:#d8bd82; }
+    .jlc-connector { text-align:center; color:#b49a61; font-size:1.4rem; line-height:1; }
+    .jlc-note { border-left:3px solid #d8bd82; padding:16px 18px; background:rgba(216,189,130,.13); border-radius:0 8px 8px 0; }
+    .jlc-list { padding-left:1.2rem; }
+    .jlc-list li { margin:.55rem 0; }
+    .jlc-small { font-size:.9rem; opacity:.82; }
+    @media (max-width:700px) {
+      .jlc-stats, .jlc-grid { grid-template-columns:1fr; }
+      .jlc-step { grid-template-columns:44px 1fr; gap:12px; }
+      .jlc-step-num { width:40px; height:40px; }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Skip to content</a>
@@ -35,7 +72,6 @@
     <section class="page-hero jlc-hero">
       <div class="page-hero-inner">
         <div class="breadcrumb"><a href="index.html">HOME</a> / <a href="councils.html">OUR COUNCILS</a> / JUSTICE AND LITIGATION COUNCIL</div>
-        <div class="jlc-mark" aria-hidden="true">⚖</div>
         <div class="jlc-kicker">A specialised council of the ESCLD</div>
         <h1>Justice and Litigation Council</h1>
         <p class="jlc-lead">Studying disputes. Pursuing justice. Upholding the rule of law.</p>
