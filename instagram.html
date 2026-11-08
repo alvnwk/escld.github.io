@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Follow the European Student Council for Law and Diplomacy on Instagram.">
+    <title>Instagram | ESCLD</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fafaf8;
+            color: #252d28;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            height: 85px;
+            padding: 0 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e8e9e4;
+            background: #fff;
+        }
+
+        .brand {
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .brand span {
+            display: block;
+            font-size: 9px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-top: 5px;
+            color: #828980;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            color: #718575;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 110px 20px 75px;
+            background: #f3f4ef;
+        }
+
+        .eyebrow {
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: #788276;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 65px);
+            font-weight: 500;
+            letter-spacing: -2px;
+            margin: 25px 0 18px;
+        }
+
+        .hero p {
+            max-width: 580px;
+            margin: auto;
+            color: #747b73;
+            line-height: 1.9;
+            font-size: 14px;
+        }
+
+        .profile {
+            max-width: 850px;
+            margin: -1px auto 0;
+            padding: 55px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 35px;
+        }
+
+        .profile-icon {
+            width: 95px;
+            height: 95px;
+            border: 1px solid #dfe2da;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .profile-icon svg {
+            width: 42px;
+            height: 42px;
+        }
+
+        .profile-info h2 {
+            font-size: 27px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .profile-info p {
+            color: #777e76;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .follow-button {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 14px 22px;
+            background: #293b31;
+            color: white;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            transition: .2s;
+        }
+
+        .follow-button:hover {
+            background: #607666;
+        }
+
+        .gallery {
+            max-width: 1100px;
+            margin: 30px auto 100px;
+            padding: 0 25px;
+        }
+
+        .gallery-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .gallery-heading h2 {
+            font-size: 27px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .gallery-heading p {
+            color: #858b83;
+            font-size: 12px;
+        }
+
+        .instagram-embed {
+            max-width: 540px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .instagram-embed blockquote {
+            margin: 0 auto !important;
+            width: 100%;
+        }
+
+        .gallery-placeholder {
+            border: 1px solid #e6e8e2;
+            padding: 55px 25px;
+            text-align: center;
+            background: #fff;
+        }
+
+        .gallery-placeholder p {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #777e76;
+            margin-bottom: 20px;
+        }
+
+        .gallery-placeholder a {
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-decoration: underline;
+        }
+
+        .closing {
+            background: #293b31;
+            color: white;
+            padding: 65px 20px;
+            text-align: center;
+        }
+
+        .closing h2 {
+            font-weight: 500;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .closing p {
+            font-size: 13px;
+            color: #d1d9d1;
+            margin-bottom: 25px;
+        }
+
+        .closing a {
+            display: inline-block;
+            border: 1px solid #b9c5bb;
+            padding: 14px 23px;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+        }
+
+        footer {
+            background: #202c25;
+            color: #d5dbd4;
+            padding: 30px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 10px;
+        }
+
+        footer a {
+            color: #d5dbd4;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                height: auto;
+                padding: 22px;
+                align-items: flex-start;
+                gap: 20px;
+                flex-direction: column;
+            }
+
+            nav {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            .hero {
+                padding: 80px 22px 65px;
+            }
+
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" class="brand">
+        ESCLD
+        <span>EUROPEAN STUDENT COUNCIL</span>
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="councils.html">Councils</a>
+        <a href="publications.html">Publications</a>
+        <a href="join.html">Join us</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <span class="eyebrow">OUR DIGITAL PRESENCE</span>
+    <h1>Connect with us.</h1>
+    <p>
+        Follow the European Student Council for Law and Diplomacy
+        and discover our activities, initiatives and latest updates.
+    </p>
+</section>
+
+<section class="profile">
+    <div class="profile-icon">
+        <svg viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.3">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="18" cy="6" r="1" fill="currentColor"/>
+        </svg>
+    </div>
+
+    <div class="profile-info">
+        <h2>@escld.eu</h2>
+        <p>
+            European Student Council for Law and Diplomacy<br>
+            Law · Diplomacy · European Affairs
+        </p>
+
+        <a class="follow-button"
+           href="https://www.instagram.com/escld.eu/"
+           target="_blank"
+           rel="noopener noreferrer">
+            FOLLOW ON INSTAGRAM ↗
+        </a>
+    </div>
+</section>
+
+<section class="gallery">
+    <div class="gallery-heading">
+        <h2>Latest publications</h2>
+        <p>Explore our presence and publications on Instagram.</p>
+    </div>
+
+    <div class="instagram-embed">
+        <div class="gallery-placeholder">
+            <p>
+                Discover our latest publications, announcements
+                and initiatives directly on our Instagram profile.
+            </p>
+            <a href="https://www.instagram.com/escld.eu/"
+               target="_blank"
+               rel="noopener noreferrer">
+                EXPLORE OUR PUBLICATIONS ↗
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="closing">
+    <h2>Be part of the conversation.</h2>
+    <p>
+        Follow our journey and stay connected with the ESCLD community.
+    </p>
+    <a href="https://www.instagram.com/escld.eu/"
+       target="_blank"
+       rel="noopener noreferrer">
+        VISIT OUR INSTAGRAM ↗
+    </a>
+</section>
+
+<footer>
+    <span>© 2026 European Student Council for Law and Diplomacy</span>
+    <a href="index.html">BACK TO HOME ↑</a>
+</footer>
+
+</body>
+</html>
