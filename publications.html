@@ -245,45 +245,46 @@
           </div>
 
           <script>
-            (() => {
-              const search = document.querySelector("[data-publication-search]");
-              const filter = document.querySelector("[data-publication-filter]");
-              const publications = [...document.querySelectorAll("[data-publication]")];
-              const empty = document.querySelector("[data-empty-state]");
+            document.addEventListener("DOMContentLoaded", () => {
+              const searchInput = document.querySelector("[data-publication-search]");
+              const councilFilter = document.querySelector("[data-publication-filter]");
+              const publicationCards = Array.from(document.querySelectorAll(".publication-grid [data-publication]"));
+              const emptyMessage = document.querySelector("[data-empty-state]");
 
-              if (!search || !filter || !publications.length || !empty) return;
+              if (!councilFilter || publicationCards.length === 0) return;
 
-              const normalize = value => value
+              const normalizeText = (value) => (value || "")
                 .normalize("NFD")
-                .replace(/[\\u0300-\\u036f]/g, "")
+                .replace(/[\u0300-\u036f]/g, "")
                 .toLowerCase()
                 .trim();
 
-              function updatePublications() {
-                const query = normalize(search.value);
-                const selectedCouncil = filter.value;
-                let visible = 0;
+              const filterPublications = () => {
+                const selectedCouncil = councilFilter.value;
+                const searchTerm = normalizeText(searchInput ? searchInput.value : "");
+                let visibleCount = 0;
 
-                publications.forEach(publication => {
-                  const councilMatches =
-                    selectedCouncil === "all" ||
-                    publication.dataset.council === selectedCouncil;
+                publicationCards.forEach((card) => {
+                  const cardCouncil = (card.getAttribute("data-council") || "").trim();
+                  const cardText = normalizeText(card.textContent);
+                  const councilMatches = selectedCouncil === "all" || cardCouncil === selectedCouncil;
+                  const searchMatches = searchTerm === "" || cardText.includes(searchTerm);
+                  const isVisible = councilMatches && searchMatches;
 
-                  const textMatches = !query ||
-                    normalize(publication.querySelector("h3").textContent).includes(query);
-
-                  const show = councilMatches && textMatches;
-                  publication.hidden = !show;
-                  if (show) visible++;
+                  card.hidden = !isVisible;
+                  if (isVisible) visibleCount += 1;
                 });
 
-                empty.style.display = visible ? "none" : "block";
-              }
+                if (emptyMessage) {
+                  emptyMessage.hidden = visibleCount !== 0;
+                  emptyMessage.style.display = visibleCount === 0 ? "block" : "none";
+                }
+              };
 
-              search.addEventListener("input", updatePublications);
-              filter.addEventListener("change", updatePublications);
-              updatePublications();
-            })();
+              councilFilter.addEventListener("change", filterPublications);
+              if (searchInput) searchInput.addEventListener("input", filterPublications);
+              filterPublications();
+            });
           </script>
 
           <div class="notice" style="margin-top:24px">
