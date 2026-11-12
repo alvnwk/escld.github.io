@@ -9,6 +9,106 @@
     </title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="assets/style.css">
+
+    <style>
+      .publication-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 28px 0 24px;
+      }
+
+      .publication-controls .field {
+        flex: 1 1 240px;
+        min-width: 0;
+      }
+
+      .publication-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .publication-tile {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 22px;
+        min-height: 150px;
+        padding: 20px;
+        border: 1px solid #344158;
+        border-radius: 8px;
+        background: #142239;
+        color: #fff;
+      }
+
+      .publication-tile[hidden] {
+        display: none !important;
+      }
+
+      .publication-tile h3 {
+        margin: 0;
+        color: #fff;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      .publication-languages {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .publication-language {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 46px;
+        padding: 7px 12px;
+        border: 1px solid #8b754b;
+        border-radius: 5px;
+        color: #e2c47f;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: .5px;
+        text-decoration: none;
+        transition: background .2s, color .2s, border-color .2s;
+      }
+
+      .publication-language:hover {
+        border-color: #d9b76d;
+        background: #d9b76d;
+        color: #101e35;
+      }
+
+      .publication-language:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 3px;
+      }
+
+      .publication-empty {
+        display: none;
+        grid-column: 1 / -1;
+        padding: 24px;
+        border: 1px solid #344158;
+        border-radius: 8px;
+        color: #bdc6d3;
+        text-align: center;
+      }
+
+      @media (max-width: 800px) {
+        .publication-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 560px) {
+        .publication-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+
   </head>
   <body>
     <a class="skip-link" href="#contenu">
@@ -55,7 +155,7 @@
           <h1>Analysis, ideas and news.</h1>
 
           <p>
-           A space for reflections and contributions from the ESCLD community on law, institutions, and international relations.
+           Explore contributions from the ESCLD community and filter publications by Council. Each publication can be accessed in its available languages.
           </p>
         </div>
       </section>
@@ -68,107 +168,117 @@
             <h2>Knowledge is meant to be shared.</h2>
 
             <p>
-              Articles will be published here as soon as the first contributions become available.
+              Browse the publications below. Select a Council to narrow the list, then choose a language to open the corresponding publication.
             </p>
           </div>
 
-          <div class="publication-tools">
+          <div class="publication-controls">
             <input
               class="field"
               type="search"
               placeholder="Search publications…"
-              aria-label="Rechercher une publication"
+              aria-label="Search publications"
               data-publication-search
             >
 
             <select
               class="field"
-              aria-label="Filtrer par domaine"
+              aria-label="Filter publications by council"
               data-publication-filter
             >
-              <option value="all">All topics</option>
-              <option value="droit">Law</option>
-              <option value="europe">Europe</option>
-              <option value="diplomatie">Diplomacy</option>
-              <option value="association">Association news</option>
+              <option value="all">All Councils</option>
+              <option value="constitutional-law">Constitutional Law and Legal Theory Council</option>
+              <option value="human-rights">Human Rights and Fundamental Freedoms Council</option>
+              <option value="european-institutions">European Institutions and Governance Council</option>
+              <option value="international-relations">International Relations and Diplomacy Council</option>
+              <option value="climate-environmental-law">Climate and Environmental Law Council</option>
+              <option value="global-representation">Global Law and Diplomacy Students’ Representation Council</option>
+              <option value="justice-litigation">Justice and Litigation Council</option>
             </select>
           </div>
 
-          <div class="card-grid">
-            <article class="info-card" data-publication data-category="association">
-              <div class="icon">01</div>
-
-              <span class="small-label">Association news</span>
-
+          <div class="publication-grid" data-publication-grid>
+            <article class="publication-tile" data-publication data-council="association">
               <h3>Welcome to the ESCLD website.</h3>
-
-              <p>
-                The European Student Council for Law and Diplomacy (ESCLD) is an organisation structured across several categories.<br><br>
-                Each Committee operates under the authority of a Department, and each Department reports to its respective Council.<br><br>
-                Council > Department > Committee<br><br>
-                Every association member is free to join whichever category or categories they wish. There is no limit on participation, and members may belong to several categories simultaneously.
-                Furthermore, some categories may collaborate on shared topics. For example, the Human Rights and Fundamental Freedoms Council and the International Relations Council are likely to address issues of mutual interest, creating opportunities for interdisciplinary cooperation.
-              </p>
-
-              <span class="pill">About us</span>
+              <div class="publication-languages" aria-label="Available languages">
+                <a class="publication-language" href="publications/welcome-to-the-escld-en.html" lang="en" hreflang="en">EN</a>
+                <a class="publication-language" href="publications/welcome-to-the-escld-fr.html" lang="fr" hreflang="fr">FR</a>
+              </div>
             </article>
 
-            <article class="info-card" data-publication data-category="droit">
-              <div class="icon">02</div>
-
-              <span class="small-label">Association News</span>
-
+            <article class="publication-tile" data-publication data-council="association">
               <h3>About the Councils.</h3>
-
-              <p>
-                A Council is the highest-level division within the association. It may comprise several Departments, each of which may in turn comprise several Committees.<br><br>
-                For example, the International Relations Council is the division responsible for bringing together all work related to international relations.<br><br>
-                In accordance with the approved internal regulations, each Council is headed by a Director, appointed by the Executive Board (with the decision determined by the President, Vice-President, Secretary General, and Treasurer). In this example, the position would be titled International Relations Council Director.
-              </p>
-
-              <span class="pill">About us</span>
+              <div class="publication-languages" aria-label="Available languages">
+                <a class="publication-language" href="publications/about-the-councils-en.html" lang="en" hreflang="en">EN</a>
+                <a class="publication-language" href="publications/about-the-councils-fr.html" lang="fr" hreflang="fr">FR</a>
+              </div>
             </article>
 
-            <article class="info-card" data-publication data-category="europe">
-              <div class="icon">03</div>
-
-              <span class="small-label">Association News</span>
-
-              <h3>About our Departmens</h3>
-
-              <p>
-                Within a Council, Departments may be established. These are divisions focused on a specific aspect of judicial, political, or diplomatic affairs. <br><br>
-                Continuing with our example, the International Relations Council could include a Russia and Eurasian Affairs Department, a division focused on Russian and Eurasian international affairs. The Department is therefore part of the Council’s structure.<br><br>
-                In accordance with the approved internal regulations, each Department is headed by a Coordinator, elected by the members of the Department themselves. If no Coordinator is elected, the Director may appoint one.<br><br>
-                In our example, the position would therefore be titled Russia and Eurasian Affairs Department Coordinator.
-                If necessary, an Associate Coordinator may be appointed to assist the Coordinator in their duties.
-              </p>
-
-              <span class="pill">About us</span>
+            <article class="publication-tile" data-publication data-council="association">
+              <h3>About our Departments.</h3>
+              <div class="publication-languages" aria-label="Available languages">
+                <a class="publication-language" href="publications/about-our-departments-en.html" lang="en" hreflang="en">EN</a>
+                <a class="publication-language" href="publications/about-our-departments-fr.html" lang="fr" hreflang="fr">FR</a>
+              </div>
             </article>
 
-            <article class="info-card" data-publication data-category="diplomatie">
-              <div class="icon">04</div>
-
-              <span class="small-label">Association news</span>
-
+            <article class="publication-tile" data-publication data-council="association">
               <h3>About our Committees.</h3>
-
-              <p>
-                A Committee is the most specific level of the structure. It is the final organisational category and is generally established to carry out a specific task or project. <br><br>
-                Continuing with our example, a Wagner Group Studies Committee could be established within the Russia and Eurasian Affairs Department. This working group would be responsible for researching and documenting the Russian Wagner Group.
-              </p>
-
-              <span class="pill">About us</span>
+              <div class="publication-languages" aria-label="Available languages">
+                <a class="publication-language" href="publications/about-our-committees-en.html" lang="en" hreflang="en">EN</a>
+                <a class="publication-language" href="publications/about-our-committees-fr.html" lang="fr" hreflang="fr">FR</a>
+              </div>
             </article>
+
+            <div class="publication-empty" data-empty-state>
+              No publications found in this council. Try another council or search term.
+            </div>
           </div>
 
-          <div class="empty-state" data-empty-state>
-           No publications match your search. Try a different term or topic.
-          </div>
+          <script>
+            (() => {
+              const search = document.querySelector("[data-publication-search]");
+              const filter = document.querySelector("[data-publication-filter]");
+              const publications = [...document.querySelectorAll("[data-publication]")];
+              const empty = document.querySelector("[data-empty-state]");
+
+              if (!search || !filter || !publications.length || !empty) return;
+
+              const normalize = value => value
+                .normalize("NFD")
+                .replace(/[\\u0300-\\u036f]/g, "")
+                .toLowerCase()
+                .trim();
+
+              function updatePublications() {
+                const query = normalize(search.value);
+                const selectedCouncil = filter.value;
+                let visible = 0;
+
+                publications.forEach(publication => {
+                  const councilMatches =
+                    selectedCouncil === "all" ||
+                    publication.dataset.council === selectedCouncil;
+
+                  const textMatches = !query ||
+                    normalize(publication.querySelector("h3").textContent).includes(query);
+
+                  const show = councilMatches && textMatches;
+                  publication.hidden = !show;
+                  if (show) visible++;
+                });
+
+                empty.style.display = visible ? "none" : "block";
+              }
+
+              search.addEventListener("input", updatePublications);
+              filter.addEventListener("change", updatePublications);
+              updatePublications();
+            })();
+          </script>
 
           <div class="notice" style="margin-top:24px">
-           This page may be connected to a content management system at a later stage.
+           Additional language links can be added to each publication as translations become available.
           </div>
         </div>
       </section>
