@@ -36,6 +36,64 @@
     @media(max-width:900px){.article-layout{grid-template-columns:minmax(0,1fr) 220px;gap:35px}.main-nav{gap:12px;font-size:11px}.brand{min-width:190px}}
     @media(max-width:760px){.nav-wrap{min-height:73px;flex-wrap:wrap;padding:12px 18px}.brand{min-width:0}.brand-mark{width:41px;height:41px}.menu-toggle{display:block}.main-nav{display:none;width:100%;flex-direction:column;align-items:stretch;padding:8px 0 13px;gap:0}.main-nav.is-open{display:flex}.main-nav a{padding:12px 4px;border-top:1px solid rgba(255,255,255,.1);font-size:13px}.nav-cta{margin-top:8px;text-align:center}.page-hero{padding:54px 21px}.article-layout{display:block;padding:48px 21px 65px}.side{position:static;margin-bottom:38px}.side-card{padding:18px}.toc{grid-template-columns:1fr 1fr}.lead{font-size:20px}.concept-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:25px}article h2{font-size:29px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  
+    .author-signature {
+      max-width: 1100px;
+      margin: 2.5rem auto 3rem;
+      padding: 1.35rem 1.6rem;
+      border: 1px solid rgba(197, 158, 87, .38);
+      border-left: 3px solid var(--gold, #c59e57);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .035);
+    }
+    .author-signature .signature-kicker {
+      margin: 0 0 .55rem;
+      color: var(--gold, #c59e57);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .author-signature .signature-name {
+      margin: 0;
+      color: inherit;
+      font-size: 1.08rem;
+      font-weight: 700;
+    }
+    .author-signature .signature-role {
+      margin: .2rem 0 .7rem;
+      opacity: .78;
+      font-size: .9rem;
+    }
+    .author-signature .signature-context {
+      margin: 0 0 .85rem;
+      max-width: 760px;
+      font-size: .88rem;
+      line-height: 1.65;
+    }
+    .author-signature .signature-profile,
+    .version-link {
+      color: var(--gold, #c59e57);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .author-signature .signature-profile {
+      font-size: .86rem;
+      font-weight: 700;
+    }
+    .version-link {
+      margin-left: .35rem;
+    }
+    @media (max-width: 700px) {
+      .author-signature {
+        margin: 2rem 1rem;
+        padding: 1.1rem 1.2rem;
+      }
+      .version-link {
+        margin-left: 0;
+      }
+    }
+
   </style>
  <header class="site-header">
     <div class="nav-wrap">
@@ -80,7 +138,7 @@
         <div class="eyebrow">Conseil du Droit Constitutionnel et de la Théorie du Droit</div>
         <h1>L’identité du souverain en droit constitutionnel français&nbsp;:<em> réflexions sur les frontières de la citoyenneté.</em></h1>
         <p class="deck">Réflexions sur la nationalité, l'appartenance politique et les fondements de la souveraineté en droit constitutionnel français.</p>
-        <div class="meta"><span><i></i>Certifié 100% sans IA.</span></div>
+        <div class="meta"><span><i></i>Aucune IA n'a été utilisée en concordance avec notre politique. <a class="version-link" href="https://escld.eu/publications.html?council=constitutional-law">Lire cet article dans une autre version</a></span></div>
       </div>
     </section>
 
@@ -262,6 +320,15 @@
       </aside>
     </div>
   </main>
+
+
+  <section class="author-signature" aria-label="Signature de l'auteur">
+    <p class="signature-kicker">À propos de l'auteur</p>
+    <p class="signature-name">Alvin Nowakowski</p>
+    <p class="signature-role">Président fondateur de l'ESCLD</p>
+    <p class="signature-context">Article écrit pour le compte de l'Association, au nom du Conseil du droit constitutionnel et de la théorie du droit.</p>
+    <a class="signature-profile" href="https://escld.eu/members/president.html">Voir son profil</a>
+  </section>
 
    <footer class="footer">
     <div class="footer-inner">
