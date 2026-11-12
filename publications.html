@@ -53,6 +53,28 @@
         line-height: 1.5;
       }
 
+      .publication-card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .publication-council {
+        color: #e2c47f;
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 1.45;
+        letter-spacing: .7px;
+        text-transform: uppercase;
+      }
+
+      .publication-description {
+        margin: 0;
+        color: #bdc6d3;
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
       .publication-languages {
         display: flex;
         flex-wrap: wrap;
@@ -155,7 +177,7 @@
           <h1>Analysis, ideas and news.</h1>
 
           <p>
-           Explore contributions from the ESCLD community and filter publications by Council. Each publication can be accessed in its available languages.
+           Discover publications from the ESCLD community, their Council of affiliation and available language versions.
           </p>
         </div>
       </section>
@@ -168,7 +190,7 @@
             <h2>Knowledge is meant to be shared.</h2>
 
             <p>
-              Browse the publications below. Select a Council to narrow the list, then choose a language to open the corresponding publication.
+              Each publication identifies its Council and includes a short overview and a link to its available language version.
             </p>
           </div>
 
@@ -198,40 +220,27 @@
           </div>
 
           <div class="publication-grid" data-publication-grid>
-            <article class="publication-tile" data-publication data-council="association">
-              <h3>Welcome to the ESCLD website.</h3>
-              <div class="publication-languages" aria-label="Available languages">
-                <a class="publication-language" href="publications/welcome-to-the-escld-en.html" lang="en" hreflang="en">EN</a>
-                <a class="publication-language" href="publications/welcome-to-the-escld-fr.html" lang="fr" hreflang="fr">FR</a>
+            <article class="publication-tile" data-publication data-council="constitutional-law">
+              <div class="publication-card-content">
+                <div class="publication-council">Constitutional Law and Legal Theory Council</div>
+                <h3>L’identité du souverain en droit constitutionnel français : réflexions sur les frontières de la citoyenneté.</h3>
+                <p class="publication-description">
+                  Une réflexion sur les rapports entre Nation, peuple souverain, nationalité et citoyenneté, ainsi que sur les frontières du droit de vote en France.
+                </p>
               </div>
-            </article>
-
-            <article class="publication-tile" data-publication data-council="association">
-              <h3>About the Councils.</h3>
               <div class="publication-languages" aria-label="Available languages">
-                <a class="publication-language" href="publications/about-the-councils-en.html" lang="en" hreflang="en">EN</a>
-                <a class="publication-language" href="publications/about-the-councils-fr.html" lang="fr" hreflang="fr">FR</a>
-              </div>
-            </article>
-
-            <article class="publication-tile" data-publication data-council="association">
-              <h3>About our Departments.</h3>
-              <div class="publication-languages" aria-label="Available languages">
-                <a class="publication-language" href="publications/about-our-departments-en.html" lang="en" hreflang="en">EN</a>
-                <a class="publication-language" href="publications/about-our-departments-fr.html" lang="fr" hreflang="fr">FR</a>
-              </div>
-            </article>
-
-            <article class="publication-tile" data-publication data-council="association">
-              <h3>About our Committees.</h3>
-              <div class="publication-languages" aria-label="Available languages">
-                <a class="publication-language" href="publications/about-our-committees-en.html" lang="en" hreflang="en">EN</a>
-                <a class="publication-language" href="publications/about-our-committees-fr.html" lang="fr" hreflang="fr">FR</a>
+                <a
+                  class="publication-language"
+                  href="https://escld.eu/publications/art-cn01-000001-fr.html"
+                  lang="fr"
+                  hreflang="fr"
+                  aria-label="Lire la publication en français"
+                >FR</a>
               </div>
             </article>
 
             <div class="publication-empty" data-empty-state>
-              No publications found in this council. Try another council or search term.
+              No publication found for this Council or search term.
             </div>
           </div>
 
@@ -278,7 +287,7 @@
           </script>
 
           <div class="notice" style="margin-top:24px">
-           Additional language links can be added to each publication as translations become available.
+           Further language versions will be added when translations become available.
           </div>
         </div>
       </section>
