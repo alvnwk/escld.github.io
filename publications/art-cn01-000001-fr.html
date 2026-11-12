@@ -37,26 +37,41 @@
     @media(max-width:760px){.nav-wrap{min-height:73px;flex-wrap:wrap;padding:12px 18px}.brand{min-width:0}.brand-mark{width:41px;height:41px}.menu-toggle{display:block}.main-nav{display:none;width:100%;flex-direction:column;align-items:stretch;padding:8px 0 13px;gap:0}.main-nav.is-open{display:flex}.main-nav a{padding:12px 4px;border-top:1px solid rgba(255,255,255,.1);font-size:13px}.nav-cta{margin-top:8px;text-align:center}.page-hero{padding:54px 21px}.article-layout{display:block;padding:48px 21px 65px}.side{position:static;margin-bottom:38px}.side-card{padding:18px}.toc{grid-template-columns:1fr 1fr}.lead{font-size:20px}.concept-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:25px}article h2{font-size:29px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   </style>
-</head>
-<body>
-  <div class="topline"></div>
-  <header class="site-header">
+ <header class="site-header">
     <div class="nav-wrap">
-      <a class="brand" href="https://escld.eu/" aria-label="ESCLD, accueil">
-        <span class="brand-mark">E.</span>
-        <span><span class="brand-name">European Student Council</span><span class="brand-sub">for Law and Diplomacy</span></span>
+
+      <a class="brand" href="index.html" aria-label="ESCLD, home">
+        <img
+          class="brand-mark"
+          src="/assets/logo-escld.svg"
+          alt="ESCLD"
+        >
+        <span>
+          <span class="brand-name">European Student Council</span>
+          <span class="brand-sub">for Law and Diplomacy</span>
+        </span>
       </a>
-      <button class="menu-toggle" aria-expanded="false" aria-controls="mainNav">Menu ☰</button>
-      <nav class="main-nav" id="mainNav" aria-label="Navigation principale">
-        <a href="https://escld.eu/">Accueil</a>
-        <a href="https://escld.eu/about.html">L'association</a>
-        <a href="https://escld.eu/councils.html">Nos conseils</a>
-        <a href="https://escld.eu/publications.html" aria-current="page">Publications</a>
-        <a href="https://escld.eu/join.html">Nous rejoindre</a>
-        <a class="nav-cta" href="https://escld.eu/contact.html">Contact ↗</a>
+
+      <button class="menu-toggle"
+              aria-expanded="false"
+              aria-label="Open menu">
+        Menu ☰
+      </button>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">The Association</a>
+        <a href="councils.html">Our Councils</a>
+        <a href="publications.html">Publications</a>
+        <a href="members/index.html">Members</a>
+        <a href="#site-directory">Search</a>
+        <a href="join.html">Join us</a>
+        <a class="nav-cta" href="contact.html">Contact ↗</a>
       </nav>
+
     </div>
   </header>
+
 
   <main>
     <section class="page-hero">
@@ -248,17 +263,99 @@
     </div>
   </main>
 
-  <footer class="footer">
+   <footer class="footer">
     <div class="footer-inner">
+
       <div class="footer-grid">
+
+        <!-- Association -->
         <div>
-          <a class="brand" href="https://escld.eu/"><span class="brand-mark">E.</span><span><span class="brand-name">European Student Council</span><span class="brand-sub">for Law and Diplomacy</span></span></a>
-          <p>Une initiative étudiante consacrée à l'étude du droit, de la diplomatie, des relations internationales et des affaires européennes.</p>
+          <a class="brand" href="index.html">
+            <img
+              class="brand-mark"
+              src="/assets/logo-escld.svg"
+              alt="ESCLD"
+            >
+
+            <span>
+              <span class="brand-name">European Student Council</span>
+              <span class="brand-sub">for Law and Diplomacy</span>
+            </span>
+          </a>
+
+          <p>
+            A student-led association dedicated to promoting the study
+            and understanding of law, diplomacy, international relations,
+            and European affairs.
+          </p>
         </div>
-        <div><h3>Explorer</h3><div class="footer-links"><a href="https://escld.eu/about.html">L'association</a><a href="https://escld.eu/councils.html">Nos conseils</a><a href="https://escld.eu/publications.html">Publications</a><a href="https://escld.eu/join.html">Nous rejoindre</a></div></div>
-        <div><h3>Contact</h3><div class="footer-links"><a href="mailto:contact@escld.eu">contact@escld.eu</a><a href="https://escld.eu/contact.html">Formulaire de contact</a><a href="https://escld.eu/legal.html">Mentions légales</a></div></div>
+
+        <!-- Navigation -->
+        <div>
+          <h3>To Explore</h3>
+
+          <div class="footer-links">
+            <a href="about.html">The Association</a>
+            <a href="councils.html">Our Councils</a>
+            <a href="justice-litigation-council.html">Justice and Litigation Council</a>
+            <a href="publications.html">Publications</a>
+            <a href="members/index.html">Representative members</a>
+            <a href="#site-directory">Search the website</a>
+            <a href="join.html">Join us</a>
+          </div>
+        </div>
+
+        <!-- Social media -->
+        <div>
+          <h3>Follow us</h3>
+
+          <div class="footer-links">
+            <a
+              href="https://www.linkedin.com/company/escld/home"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+
+            <a
+              href="https://instagram.com/escld.eu"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h3>Contact us</h3>
+
+          <div class="footer-links">
+            <a href="mailto:contact@escld.eu">
+              contact@escld.eu
+            </a>
+
+            <a href="contact.html">Contact form</a>
+            <a href="legal.html">Legal notice</a>
+          </div>
+        </div>
+
       </div>
-      <div class="footer-bottom"><span>© <span id="year"></span> European Student Council for Law and Diplomacy</span><span>Du droit naissent les voix qui rapprochent les nations</span></div>
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom">
+        <span>
+          © <span data-year></span>
+          European Student Council for Law and Diplomacy
+        </span>
+
+        <span>
+          Du droit naissent les voix qui rapprochent les nations
+        </span>
+      </div>
+
     </div>
   </footer>
   <script>
