@@ -178,19 +178,15 @@
       margin-bottom: 1.35rem;
     }
     .member-avatar {
-      display: grid;
-      flex: 0 0 76px;
-      width: 76px;
-      height: 76px;
-      place-items: center;
-      border: 1px solid var(--members-gold);
-      border-radius: 50%;
-      background: var(--members-navy);
-      color: #f1dfba;
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 1.35rem;
-      letter-spacing: .05em;
-    }
+  display: block;
+  flex: 0 0 76px;
+  width: 76px;
+  height: 76px;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid var(--members-gold);
+  border-radius: 50%;
+}
     .member-name {
       margin: 0 0 .4rem;
       color: var(--members-navy);
@@ -402,7 +398,10 @@
         <div class="members-grid" id="members-grid">
           <article class="member-card" data-member data-search="alvin nowakowski founding president executive board constitutional law legal theory council director">
             <div class="member-card-top">
-              <div class="member-avatar" aria-hidden="true">AN</div>
+              <img
+                  class="member-avatar"
+                  src="/assets/president.jpg"
+                  alt="Portrait of Alvin N.">
               <div>
                 <h3 class="member-name">Alvin N.</h3>
                 <p class="member-role">Founding President<br>Justice and Litigation Council Director<br>Constitutional Law and Legal Theory Council Director</p>
@@ -421,28 +420,12 @@
             </a>
           </article>
 
-          <article class="member-card" data-member data-search="jade bourbier communication manager comms">
-            <div class="member-card-top">
-              <div class="member-avatar" aria-hidden="true">JB</div>
-              <div>
-                <h3 class="member-name">Jade Bourbier</h3>
-                <p class="member-role">Comms Manager</p>
-              </div>
-            </div>
-            <div class="member-tags">
-            </div>
-            <div class="member-divider" aria-hidden="true"></div>
-            <p class="member-card-description">
-              -
-            </p>
-            <a class="member-card-action" href="/members/comms-manager.html" aria-label="View no one’s digital card">
-              <span>View digital card</span><span aria-hidden="true">↗</span>
-            </a>
-          </article>
-
           <article class="member-card" data-member data-search="norah b. human rights and fundamental freedoms council director">
             <div class="member-card-top">
-              <div class="member-avatar" aria-hidden="true">NB</div>
+               <img
+                  class="member-avatar"
+                  src="/assets/human-rights-and-fundamental-freedoms-council-director.jpg"
+                  alt="Portrait of Norah B.">
               <div>
                 <h3 class="member-name">Norah B.</h3>
                 <p class="member-role">Human Rights and Fundamental Freedoms Council Director</p>
@@ -459,6 +442,29 @@
               <span>View digital card</span><span aria-hidden="true">↗</span>
             </a>
           </article>
+
+          <article class="member-card" data-member data-search="jade bourbier communication manager comms">
+            <div class="member-card-top">
+               <img
+                  class="member-avatar"
+                  src="/assets/comms-manager.jpg"
+                  alt="Portrait of Jade B.">
+              <div>
+                <h3 class="member-name">Jade B.</h3>
+                <p class="member-role">Comms Manager</p>
+              </div>
+            </div>
+            <div class="member-tags">
+            </div>
+            <div class="member-divider" aria-hidden="true"></div>
+            <p class="member-card-description">
+              -
+            </p>
+            <a class="member-card-action" href="/members/comms-manager.html" aria-label="View no one’s digital card">
+              <span>View digital card</span><span aria-hidden="true">↗</span>
+            </a>
+          </article>
+          
         </div>
 
         <p class="members-empty" id="members-empty" role="status" hidden>
