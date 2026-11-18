@@ -3,192 +3,388 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Carte de fonction d'un membre de l'ESCLD.">
-  <title>Representative member of the ESCLD</title>
-
+  <meta name="description" content="ESCLD professional profile card">
+  <meta name="theme-color" content="#192940">
+  <title>Alvin N. | ESCLD</title>
   <style>
-    * {
-      box-sizing: border-box;
+    :root {
+      --navy: #192940;
+      --navy-dark: #122033;
+      --gold: #c8a65d;
+      --gold-soft: #e4cc91;
+      --text: #1f2937;
+      --muted: #667085;
+      --line: #e6e8ec;
+      --paper: #ffffff;
+      --canvas: #f3f5f7;
     }
+
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       min-height: 100vh;
-      padding: 30px 16px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #192940;
-      color: #ffffff;
-      font-family: Arial, sans-serif;
+      padding: 38px 16px;
+      display: grid;
+      place-items: center;
+      background: var(--canvas);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
     }
 
-    .card {
-      width: 100%;
-      max-width: 440px;
+    .profile-card {
+      width: min(100%, 520px);
       overflow: hidden;
-      background: #101010;
-      border: 1px solid #343434;
-      border-radius: 18px;
-      box-shadow: 0 20px 60px #00000080;
+      background: var(--paper);
+      border: 1px solid #e1e4e8;
+      border-radius: 16px;
+      box-shadow: 0 8px 28px rgba(16, 24, 40, .10);
     }
 
-    .header {
-      padding: 26px 28px;
-      background: #000000;
-      border-bottom: 2px solid #c8a65d;
+    .cover {
+      position: relative;
+      height: 154px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(228,204,145,.17), transparent 24%),
+        linear-gradient(115deg, var(--navy-dark), var(--navy) 60%, #29415e);
     }
 
-    .logo {
-      color: #d9b76d;
-      font-size: 26px;
-      font-weight: bold;
-      letter-spacing: 1px;
+    .cover::before,
+    .cover::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(228,204,145,.25);
+      border-radius: 50%;
+      transform: rotate(-24deg);
     }
 
-    .subtitle {
-      margin-top: 8px;
-      color: #cccccc;
-      font-size: 11px;
-      line-height: 1.7;
-      letter-spacing: 1.2px;
+    .cover::before {
+      width: 330px;
+      height: 190px;
+      right: -70px;
+      top: 18px;
     }
 
-    .content {
-      padding: 30px 28px;
-      text-align: center;
+    .cover::after {
+      width: 270px;
+      height: 150px;
+      right: -35px;
+      top: 39px;
+      border-color: rgba(228,204,145,.13);
     }
 
-    .label {
-      color: #d9b76d;
-      font-size: 11px;
+    .cover-brand {
+      position: absolute;
+      top: 22px;
+      left: 26px;
+      color: var(--gold-soft);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 27px;
+      font-weight: 600;
+      letter-spacing: 3px;
+    }
+
+    .cover-caption {
+      position: absolute;
+      top: 57px;
+      left: 27px;
+      color: rgba(255,255,255,.78);
+      font-size: 9px;
+      line-height: 1.55;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      letter-spacing: 2px;
     }
 
-    .member-photo {
+    .profile-content {
+      position: relative;
+      padding: 0 28px 25px;
+    }
+
+    .avatar {
+      width: 116px;
+      height: 116px;
+      margin-top: -58px;
+      position: relative;
       display: block;
-      width: 140px;
-      height: 140px;
-      margin: 24px auto;
+      border: 4px solid #fff;
+      border-radius: 50%;
       object-fit: cover;
       object-position: center;
-      border-radius: 50%;
-      border: 3px solid #c8a65d;
-      background: #202020;
+      background: #e7ebf0;
+      box-shadow: 0 2px 8px rgba(16,24,40,.14);
+    }
+
+    .identity {
+      padding-top: 13px;
     }
 
     h1 {
-      margin: 12px 0;
-      color: #ffffff;
-      font-size: 28px;
+      margin: 0;
+      color: #17212f;
+      font-size: 27px;
+      line-height: 1.2;
+      font-weight: 650;
+      letter-spacing: -.6px;
       overflow-wrap: anywhere;
     }
 
-    .role {
-      margin: 0;
-      color: #d9b76d;
-      font-size: 17px;
-      font-weight: bold;
-    }
-
-    .mandate {
-      margin-top: 12px;
-      color: #bbbbbb;
+    .headline {
+      margin: 8px 0 0;
+      color: #344054;
       font-size: 14px;
+      line-height: 1.55;
+      font-weight: 500;
     }
 
-    .status {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 8px 14px;
-      border: 1px solid #567b60;
-      border-radius: 30px;
-      background: #14251a;
-      color: #a8ddb4;
+    .affiliation {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .affiliation strong {
+      color: #344054;
+      font-weight: 600;
+    }
+
+    .location {
+      margin: 6px 0 0;
+      color: #7a8492;
       font-size: 12px;
     }
 
-    .footer {
-      padding: 22px 28px;
-      background: #080808;
-      border-top: 1px solid #343434;
-      color: #cccccc;
+    .term {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 15px;
+      padding: 6px 10px;
+      border: 1px solid rgba(200,166,93,.45);
+      border-radius: 999px;
+      background: #fbf8f0;
+      color: #795f2b;
+      font-size: 11px;
+      font-weight: 650;
+    }
+
+    .term::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #b18b3e;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 21px;
+    }
+
+    .action {
+      min-height: 38px;
+      padding: 0 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid var(--navy);
+      border-radius: 999px;
+      color: var(--navy);
+      background: #fff;
       font-size: 13px;
-      line-height: 2;
+      font-weight: 650;
+      text-decoration: none;
+      transition: background .15s ease, transform .15s ease;
+    }
+
+    .action:hover {
+      background: #f2f5f8;
+      transform: translateY(-1px);
+    }
+
+    .action.primary {
+      color: #fff;
+      background: var(--navy);
+    }
+
+    .action.primary:hover { background: #263d59; }
+
+    .linkedin-icon {
+      width: 17px;
+      height: 17px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid currentColor;
+      border-radius: 3px;
+      font-size: 10px;
+      font-weight: 750;
+      line-height: 1;
+    }
+
+    .divider {
+      height: 1px;
+      margin: 23px -28px 18px;
+      background: var(--line);
+    }
+
+    .section-label {
+      margin: 0 0 11px;
+      color: #475467;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+    }
+
+    .positions {
+      display: grid;
+      gap: 13px;
+    }
+
+    .position {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 11px;
+      align-items: start;
+    }
+
+    .position-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(200,166,93,.45);
+      border-radius: 9px;
+      background: #fbf8f0;
+      color: #856b34;
+      font-family: Georgia, serif;
+      font-size: 15px;
+    }
+
+    .position strong {
+      display: block;
+      color: #263243;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .position span {
+      display: block;
+      margin-top: 3px;
+      color: #7b8491;
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
+    .footer {
+      padding: 16px 28px;
+      border-top: 1px solid var(--line);
+      background: #fafbfc;
+      color: #7a8492;
+      font-size: 11px;
+      line-height: 1.55;
       text-align: center;
     }
 
-    a {
-      color: #d9b76d;
+    .footer a {
+      color: #475467;
+      font-weight: 600;
       text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 420px) {
+      body { padding: 18px 10px; }
+      .cover { height: 132px; }
+      .profile-content { padding-right: 20px; padding-left: 20px; }
+      .cover-brand { left: 20px; }
+      .cover-caption { left: 21px; }
+      .divider { margin-right: -20px; margin-left: -20px; }
+      .footer { padding-right: 18px; padding-left: 18px; }
+      h1 { font-size: 24px; }
     }
 
-    .note {
-      margin-top: 24px;
-      color: #999999;
-      font-size: 11px;
-      line-height: 1.7;
+    @media print {
+      body { padding: 0; background: #fff; }
+      .profile-card { box-shadow: none; }
+      * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
     }
   </style>
 </head>
-
 <body>
-  <main class="card">
+  <main class="profile-card" aria-label="ESCLD professional profile card">
+    <div class="cover">
+      <div class="cover-brand">ESCLD</div>
+      <div class="cover-caption">European Student Council<br>for Law and Diplomacy</div>
+    </div>
 
-    <header class="header">
-      <div class="logo">ESCLD</div>
-
-      <div class="subtitle">
-        EUROPEAN STUDENT COUNCIL<br>
-        FOR LAW AND DIPLOMACY
-      </div>
-    </header>
-
-    <section class="content">
-      <div class="label">Representative Card</div>
-
+    <section class="profile-content">
       <img
-        class="member-photo"
-        src="../assets/vice-president.jpg"
-        alt="Photo du vice-président de l'ESCLD"
+        class="avatar"
+        src="../assets/president.jpg"
+        alt="Photo du président de l'ESCLD"
       >
 
-      <h1>-</h1>
+      <div class="identity">
+        <h1>Alvin N.</h1>
+        <p class="headline">
+          Founding President · Justice and Litigation Council Director ·
+          Constitutional Law and Legal Theory Council Director
+        </p>
+        <p class="affiliation"><strong>European Student Council for Law and Diplomacy (ESCLD)</strong></p>
+        <p class="location">Term of Office: 2026–2027</p>
+        <span class="term">Current mandate · 2026–2027</span>
+      </div>
 
-      <p class="role">Vice-President<br>
+      <div class="actions">
+        <!-- Replace this URL with the member's personal LinkedIn profile. -->
+        <a class="action primary" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+          <span class="linkedin-icon" aria-hidden="true">in</span>
+          LinkedIn profile
+        </a>
+        <a class="action" href="mailto:contact@escld.eu">Contact ESCLD</a>
+      </div>
 
-      <p class="mandate">
-        Term of Office: 2026–2027
-      </p>
+      <div class="divider"></div>
 
-      <span class="status">Current Term</span>
-
-      <p class="note">
-        This card identifies an individual's role within the association. It does not constitute an official identity document or diplomatic accreditation.
-      </p>
+      <h2 class="section-label">Leadership & responsibilities</h2>
+      <div class="positions">
+        <div class="position">
+          <div class="position-mark" aria-hidden="true">01</div>
+          <div>
+            <strong>Founding President</strong>
+            <span>European Student Council for Law and Diplomacy</span>
+          </div>
+        </div>
+        <div class="position">
+          <div class="position-mark" aria-hidden="true">02</div>
+          <div>
+            <strong>Justice and Litigation Council Director</strong>
+            <span>European Student Council for Law and Diplomacy</span>
+          </div>
+        </div>
+        <div class="position">
+          <div class="position-mark" aria-hidden="true">03</div>
+          <div>
+            <strong>Constitutional Law and Legal Theory Council Director</strong>
+            <span>European Student Council for Law and Diplomacy</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <footer class="footer">
-      <strong>
-        European Student Council for Law and Diplomacy
-      </strong>
+      <a href="../index.html">Official ESCLD website</a>
+      <span aria-hidden="true"> · </span>
+      <a href="mailto:contact@escld.eu">contact@escld.eu</a>
       <br>
-
-      <a href="../index.html">
-        Official ESCLD Website
-      </a>
-      <br>
-
-      <a href="mailto:contact@escld.eu">
-        Contact the Association
-      </a>
+      This profile presents an association role; it is not an identity document or diplomatic accreditation.
     </footer>
-
   </main>
 </body>
 </html>
